@@ -1,0 +1,97 @@
+/*** Sytlesheet spezielle für indexAllExercise ***/
+
+
+/*** 
+
+header 
+
+***/
+
+
+
+/*** 
+
+main 
+
+***/
+
+main{
+  flex-direction: column;
+}
+
+.filterExercise{
+  border: red 1px solid;
+}
+
+.filter{
+    font-size: 16;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* test */
+
+.boxExercise {
+  width: 95%;
+  padding: 10px;
+  margin: 5px;
+  box-sizing: border-box;
+  border-radius: 20px 20px 20px 20px;
+  background-color: white;
+  border: #F2F2F2 5px solid;
+}
+
+h2{
+  font-size: 22pt;
+  font-weight:bolder;
+}
+
+h3{
+  font-size: 16pt;
+  font-weight: normal;
+}
+
+
+/*** 
+
+footer 
+
+***/
+
+
+
+
+
+/***
+
+responsive Webdesign
+
+***/
+
+
+@media (min-width: 900px) {
+  /*iPad*/
+  .boxForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1194px) {
+  /*display groß*/
+  .boxForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+    
+}
+
+@media (min-width: 1440px) {
+  /*display groeßer*/
+  
+
+}
+
+
