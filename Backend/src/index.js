@@ -7,10 +7,14 @@ import OpenApiEnforcerMiddleware from "@dschulmeis/restify-openapi-enforcer-midd
 import DatabaseFactory from "./database.js";
 import RootController from "./controller/root.controller.js";
 import AdressController from "./controller/address.controller.js";
+import ExerciseController from "./controller/exercise.controller.js";
+//import WorkoutController from "./controller/workout.controller.js";
 
 // Verzeichnisnamen der Quellcodedatei ermitteln
 import path from "path";
 import { fileURLToPath } from "url";
+//import WorkoutController from "./controller/workout.controller.js";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /* =============================================================================
@@ -92,7 +96,8 @@ server.use(OpenApiEnforcerMiddleware(openApiEnforcer));
 // HTTP-Controller registrieren
 new RootController(server, "/", openApiFile);
 new AdressController(server, "/address");
-
+new ExerciseController(server, "/exercise");
+//new WorkoutController(server, "/workout");
 // Server tatsächlich starten
 server.listen(config.port, config.host, function() {
     console.log();

@@ -23,8 +23,53 @@ class DatabaseFactory {
         this.database = this.client.db("adressbook");
 
         await this._createDemoData();
+        await this._createDemoExercises();
+        await this._createDemoWorkouts();
     }
 
+
+    async _createDemoExercises(){
+        let exercises = this.database.collection("exercises");
+
+        if (await exercises.estimatedDocumentCount() === 0) {
+            exercises.insertMany([
+                {
+                    name: "Willy",
+                    image: "Tanner",
+                    difficulty: "willy.tanner@alf.com",
+                    muscleGroup: "+49 711 564412",                    
+                    description: "lasssssssssssooooo",
+                },
+                {
+                    name: "sdfsdf",
+                    image: "Tafsdfsdfr",
+                    difficulty: "willy.tanner@alf.com",
+                    muscleGroup: "+49 711 564412",                    
+                    description: "lasssssssssssooooo",
+                },
+            ]);
+        }
+    }
+
+
+    //async _createDemoWorkouts(){
+    //    let exercises = this.database.collection("workouts");
+    //
+    //    if (await exercises.estimatedDocumentCount() === 0) {
+    //        exercises.insertMany([
+    //            {
+    //                name: "Willy",
+    //                exercises: "asdasd",
+    //            },
+    //            {
+    //                name: "sdfsdf",
+    //                exercises: "sdfsdfds",
+    //            },
+    //        ]);
+    //    }
+    //}
+
+    
     /**
      * Hilfsmethode zum Anlegen von Demodaten. Würde man so in einer
      * Produktivanwendung natürlich nicht machen, aber so sehen wir

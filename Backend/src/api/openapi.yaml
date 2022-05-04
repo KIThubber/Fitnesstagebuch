@@ -18,6 +18,7 @@ servers:
 tags:
 - name: Index
 - name: Adresse
+- name: Übung
 paths:
   /:
     get:
@@ -36,7 +37,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/HATEOAS_Collection'
                 x-content-type: application/json
-
+ 
   /address:
     get:
       tags:
@@ -112,7 +113,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Address'
-
+ 
   /address/{id}:
     get:
       tags:
@@ -216,7 +217,91 @@ paths:
           description: OK
         "404":
           description: Not Found
-
+ 
+  /exercise:
+    get:
+      tags:
+      - Übung
+      summary: Übung auslesen
+      description: Suche nach Übung. Gibt eine Liste aller Übungen passend zu
+        den übergebenen Suchkriterien zurück.
+      operationId: search-exercise
+      parameters:
+      - name: name
+        in: query
+        description: Gesuchte Übung
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: image
+        in: query
+        description: Gesuchter Nachname
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: difficulty
+        in: query
+        description: Gesuchte Telefonnummer
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: muscleGroup
+        in: query
+        description: Gesuchte E-Mailadresse
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: Gesuchte E-Mailadresse
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Exercise'
+                x-content-type: application/json
+    post:
+      tags:
+      - Übung
+      summary: Übung anlegen
+      description: "Neue Übung anlegen. Speichert die übergebene Übung in der\
+        \ Datenbank. Der Wert des Feldes \"_id\" wird dabei ignoriert, da in jedem Fall\
+        \ eine neue Übung mit neuer ID angelegt wird."
+      operationId: create-exercise
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exercise'
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exercise'
+ 
 components:
   schemas:
     HATEOAS_Collection:
@@ -229,7 +314,7 @@ components:
           $ref: '#/components/schemas/HATEOAS_Link'
         create:
           $ref: '#/components/schemas/HATEOAS_Link'
-
+ 
     HATEOAS_Resource:
       title: HATEOAS-Links einer Resource
       type: object
@@ -242,7 +327,7 @@ components:
           $ref: '#/components/schemas/HATEOAS_Link'
         delete:
           $ref: '#/components/schemas/HATEOAS_Link'
-
+ 
     HATEOAS_Link:
       title: HATEOAS-Link
       type: object
@@ -255,7 +340,7 @@ components:
           type: array
           items:
             type: string
-
+ 
     Address:
       title: Adresse
       type: object
@@ -282,4 +367,35 @@ components:
         last_name: "Mulder"
         email: "mulder@xfiles.com"
         phone: "+49 721 553181"
+ 
+    Exercise:
+      title: Übung
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HATEOAS_Resource'
+        _id:
+          type: string
+        name:
+          type: string
+        image:
+          type: string
+        difficulty:
+          type: string
+        muscleGroup:
+          type: string
+        description:
+          type: string
+      required:
+        - name
+      example:
+        _id: "621xx9a9309097df5batr746e"
+        name: "Liegstütze"
+        image: "Test"
+        difficulty: "leicht"
+        muscleGroup: "Brust"
+        description: "blablabla"
   securitySchemes: {}
+ 
+
+
