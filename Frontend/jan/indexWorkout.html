@@ -11,8 +11,11 @@
 
     <script src="indexWorkoutOverview.js"></script>
 </head>
-    <!--    indexWorkoutOverview zeigt alle hinterlegten Workout-Vorlagen aus der Datenbank an
-            per klick auf das Workout gelangt man auf die Seite indexWorkout
+  <!--  v1
+        indexWorkout soll die einzelnen gespeicherten Übunngen innerhalb der Seite anzeigen
+        indexWorkoutOverview ist die Überseite und veweist auf die angelegten Workout-Vorlagen
+        die Übungen von indexWorkout werden aus der Datenbank gezogen, per klick auf die Übung
+        wird die Detailansicht excercise geöffnet
     -->
 <body>
     <header>
@@ -41,64 +44,60 @@
 
 
     <main>
-        <h2>Workout Übersicht</h2>
+        <h2> Zurück zur Workout Übersicht (Link)</h2>
 
-        <div class="boxButton">
-            <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Leeres Workout starten</button>
-        </div>
 
         <section class="section-news">
-            <h2>Meine Workout Vorlagen</h2>
+            
 
-            <div class="card-container">
-                <div class="card">
-                    <!-- Quelle Bild: https://www.shutterstock.com/image-illustration/press-bar-lying-on-incline-bench-425668825 -->
-                    <img src="BenchPress_Shutterstock.png" alt="" />
+            <div class="workout-container">
+                <h2>Mein Workout</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <!-- Quelle Bild: https://www.shutterstock.com/image-illustration/press-bar-lying-on-incline-bench-425668825 -->
                         
-                    <div class="card-body">
-                        <h4>Push Workout</h4>
-                        <h5>Upper Body</h5>
-                        <p>
-                            Bench Press<br>
-                            Incline Chest<br>
-                            Blubb
-                        </p>
-                        <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Workout starten</button>
+                            
+                        
+                        <div class="card-body">
+                            <img src="BenchPress_Shutterstock.png" alt="" />
+                            <h4>Excercise name</h4>
+                            <h5>Muscle Group</h5>
+                            <p>
+                                Description
+                            </p>
+                            <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Details</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <!-- Quelle Bild: https://www.shutterstock.com/image-illustration/deadlifts-sumo-3d-illustration-425575663 -->
+                        
+                        <div class="card-body">
+                            <img src="Deadlift_Shutterstock.png" alt="" />
+                            <h4>Excercise name</h4>
+                            <h5>Muscle Group</h5>
+                            <p>
+                                Description
+                            </p>
+                            <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Details</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <!-- Quelle Bild: https://modusx.de/fitness-uebungen/beine/sumo-squat/ -->
+                        
+
+                        <div class="card-body">
+                            <img src="Squat_modusx.png" alt="" />
+                            <h4>Excercise name</h4>
+                            <h5>Muscle Group</h5>
+                            <p>
+                                Description
+                            </p>
+                            <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Details</button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="card">
-                    <!-- Quelle Bild: https://www.shutterstock.com/image-illustration/deadlifts-sumo-3d-illustration-425575663 -->
-                    <img src="Deadlift_Shutterstock.png" alt="" />
-
-                    <div class="card-body">
-                        <h4>Pull Workout</h4>
-                        <h5>Upper Body</h5>
-                        <p>
-                            Kreuzheben<br>
-                            Pullups<br>
-                            Blubb
-                        </p>
-                        <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Workout starten</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <!-- Quelle Bild: https://modusx.de/fitness-uebungen/beine/sumo-squat/ -->
-                    <img src="Squat_modusx.png" alt="" />
-
-                    <div class="card-body">
-                        <h4>Legs Workout</h4>
-                        <h5>Lower Body</h5>
-                        <p>
-                            Squat<br>
-                            Leg Press<br>
-                            Blubb
-                        </p>
-                        <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Workout starten</button>
-                    </div>
-                </div>
-               
             </div>
         </section>
                 
