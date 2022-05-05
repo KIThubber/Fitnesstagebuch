@@ -67,8 +67,8 @@ export default class PageEdit extends Page {
 
         // Platzhalter im HTML-Code ersetzen
         let html = this._mainElement.innerHTML;
-        html = html.replace("$NAME$", this._dataset.image);
         html = html.replace("$IMAGE$", this._dataset.name);
+        html = html.replace("$NAME$", this._dataset.image);
         html = html.replace("$DIFFICULTY$", this._dataset.difficulty);
         html = html.replace("$MUSCLEGROUP$", this._dataset.muscleGroup);
         html = html.replace("$DESCRIPTION$", this._dataset.description);
