@@ -1,0 +1,19 @@
+/***Basic Sytlesheet für Frontend J***/
+
+body {
+    background-color: white;
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /*** Header ***/
+  
+  h1 {
+    font-size: 28pt;
+    font-weight: bold;
+  }
+
+
+
