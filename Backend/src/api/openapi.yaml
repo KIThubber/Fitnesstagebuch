@@ -301,6 +301,65 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Exercise'
+  /workout:
+    get:
+      tags:
+      - Workout
+      summary: Workout auslesen
+      description: Suche nach Workout. Gibt eine Liste aller Workouts passend zu
+        den übergebenen Suchkriterien zurück.
+      operationId: search-workout
+      parameters:
+      - name: name
+        in: query
+        description: Gesuchtes Workout
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: exercises
+        in: query
+        description: Übungen im Workout
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Workout'
+                x-content-type: application/json
+    post:
+      tags:
+      - Workout
+      summary: Workout anlegen
+      description: "Neues Workout anlegen. Speichert das übergebene Workout in der\
+        \ Datenbank. Der Wert des Feldes \"_id\" wird dabei ignoriert, da in jedem Fall\
+        \ eine neue Workout mit neuer ID angelegt wird."
+      operationId: create-workout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workout'
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workout'
  
 components:
   schemas:
@@ -395,6 +454,25 @@ components:
         difficulty: "leicht"
         muscleGroup: "Brust"
         description: "blablabla"
+
+    Workout:
+      title: Workout
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HATEOAS_Resource'
+        _id:
+          type: string
+        name:
+          type: string
+        exercises:
+          type: string
+      required:
+        - name
+      example:
+        _id: "621xx9a9309097df5batr746e"
+        name: "Brustworkout"
+        exercises: "Liegstütze, Bankdrücken"
   securitySchemes: {}
  
 
