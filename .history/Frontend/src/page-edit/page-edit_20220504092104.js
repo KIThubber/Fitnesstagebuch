@@ -21,19 +21,17 @@ export default class PageEdit extends Page {
         this._editId = editId;
 
         this._dataset = {
-            name: "",
-            image: "",
-            difficulty: "",
-            muscleGroup: "",
-            description: "",
+            first_name: "",
+            last_name: "",
+            phone: "",
+            email: "",
         };
 
         // Eingabefelder
-        this._nameInput = null;
-        this._imageInput  = null;
-        this._difficultyInput     = null;
-        this._muscleGroupInput     = null;
-        this._descriptionInput     = null;
+        this._firstNameInput = null;
+        this._lastNameInput  = null;
+        this._phoneInput     = null;
+        this._emailInput     = null;
     }
 
     /**
@@ -57,22 +55,20 @@ export default class PageEdit extends Page {
 
         // Bearbeiteten Datensatz laden
         if (this._editId) {
-            this._url = `/exercise/${this._editId}`;
+            this._url = `/address/${this._editId}`;
             this._dataset = await this._app.backend.fetch("GET", this._url);
-            this._title = `${this._dataset.name} ${this._dataset.image}`;
+            this._title = `${this._dataset.first_name} ${this._dataset.last_name}`;
         } else {
-            this._url = `/exercise`;
+            this._url = `/address`;
             this._title = "Adresse hinzufügen";
         }
 
         // Platzhalter im HTML-Code ersetzen
         let html = this._mainElement.innerHTML;
-        html = html.replace("$NAME$", this._dataset.image);
-        html = html.replace("$IMAGE$", this._dataset.name);
-        html = html.replace("$DIFFICULTY$", this._dataset.difficulty);
-        html = html.replace("$MUSCLEGROUP$", this._dataset.muscleGroup);
-        html = html.replace("$DESCRIPTION$", this._dataset.description);
-
+        html = html.replace("$LAST_NAME$", this._dataset.last_name);
+        html = html.replace("$FIRST_NAME$", this._dataset.first_name);
+        html = html.replace("$PHONE$", this._dataset.phone);
+        html = html.replace("$EMAIL$", this._dataset.email);
         this._mainElement.innerHTML = html;
 
         // Event Listener registrieren
@@ -80,11 +76,10 @@ export default class PageEdit extends Page {
         saveButton.addEventListener("click", () => this._saveAndExit());
 
         // Eingabefelder zur späteren Verwendung merken
-        this._nameInput = this._mainElement.querySelector("input.name");
-        this._imageInput  = this._mainElement.querySelector("input.image");
-        this._difficultyInput     = this._mainElement.querySelector("input.difficulty");
-        this._muscleGroupInput     = this._mainElement.querySelector("input.muscleGroup");
-        this._descriptionInput     = this._mainElement.querySelector("input.description");
+        this._firstNameInput = this._mainElement.querySelector("input.first_name");
+        this._lastNameInput  = this._mainElement.querySelector("input.last_name");
+        this._phoneInput     = this._mainElement.querySelector("input.phone");
+        this._emailInput     = this._mainElement.querySelector("input.email");
     }
 
     /**
@@ -93,15 +88,22 @@ export default class PageEdit extends Page {
      */
     async _saveAndExit() {
         // Eingegebene Werte prüfen
-  
         this._dataset._id        = this._editId;
-        this._dataset.name = this._nameInput.value.trim();
-        this._dataset.image  = this._imageInput.value.trim();
-        this._dataset.difficulty      = this._difficultyInput.value.trim();
-        this._dataset.muscleGroup      = this._muscleGroupInput.value.trim();
-        this._dataset.description     = this._descriptionInput.value.trim();
+        this._dataset.first_name = this._firstNameInput.value.trim();
+        this._dataset.last_name  = this._lastNameInput.value.trim();
+        this._dataset.phone      = this._phoneInput.value.trim();
+        this._dataset.email      = this._emailInput.value.trim();
 
-    
+        if (!this._dataset.first_name) {
+            alert("Geben Sie erst einen Vornamen ein.");
+            return;
+        }
+
+        if (!this._dataset.last_name) {
+            alert("Geben Sie erst einen Nachnamen ein.");
+            return;
+        }
+
         // Datensatz speichern
         try {
             if (this._editId) {

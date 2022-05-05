@@ -39,7 +39,7 @@ export default class PageList extends Page {
         this._title = "Übersicht";
 
         // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
-        let data = await this._app.backend.fetch("GET", "/exercise");
+        let data = await this._app.backend.fetch("GET", "/address");
         this._emptyMessageElement = this._mainElement.querySelector(".empty-placeholder");
 
         if (data.length) {
@@ -59,11 +59,10 @@ export default class PageList extends Page {
             let html = templateHtml;
 
             html = html.replace("$ID$", dataset._id);
-            html = html.replace("$NAME$", dataset.name);
-            html = html.replace("$IMAGE$", dataset.image);
-            html = html.replace("$DIFFICULTY$", dataset.difficulty);
-            html = html.replace("$MUSCLEGROUP$", dataset.muscleGroup);
-            html = html.replace("$DESCRIPTION$", dataset.description);
+            html = html.replace("$LAST_NAME$", dataset.last_name);
+            html = html.replace("$FIRST_NAME$", dataset.first_name);
+            html = html.replace("$PHONE$", dataset.phone);
+            html = html.replace("$EMAIL$", dataset.email);
 
             // Element in die Liste einfügen
             let dummyElement = document.createElement("div");
@@ -86,13 +85,12 @@ export default class PageList extends Page {
      */
     async _askDelete(id) {
         // Sicherheitsfrage zeigen
-        
         let answer = confirm("Soll die ausgewählte Adresse wirklich gelöscht werden?");
         if (!answer) return;
 
         // Datensatz löschen
         try {
-            this._app.backend.fetch("DELETE", `/exercise/${id}`);
+            this._app.backend.fetch("DELETE", `/address/${id}`);
         } catch (ex) {
             this._app.showException(ex);
             return;

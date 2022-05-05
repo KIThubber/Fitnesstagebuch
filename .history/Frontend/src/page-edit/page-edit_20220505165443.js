@@ -93,7 +93,10 @@ export default class PageEdit extends Page {
      */
     async _saveAndExit() {
         // Eingegebene Werte prüfen
-  
+        
+        let answer = confirm("Soll die ausgewählte Adresse wirklich gelöscht werden?");
+        if (!answer) return;
+
         this._dataset._id        = this._editId;
         this._dataset.name = this._nameInput.value.trim();
         this._dataset.image  = this._imageInput.value.trim();

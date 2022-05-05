@@ -93,7 +93,6 @@ export default class PageEdit extends Page {
      */
     async _saveAndExit() {
         // Eingegebene Werte prüfen
-  
         this._dataset._id        = this._editId;
         this._dataset.name = this._nameInput.value.trim();
         this._dataset.image  = this._imageInput.value.trim();
@@ -101,7 +100,16 @@ export default class PageEdit extends Page {
         this._dataset.muscleGroup      = this._muscleGroupInput.value.trim();
         this._dataset.description     = this._descriptionInput.value.trim();
 
-    
+        if (!this._dataset.name) {
+            alert("Geben Sie erst einen Vornamen ein.");
+            return;
+        }
+
+        if (!this._dataset.image) {
+            alert("Geben Sie erst einen Nachnamen ein.");
+            return;
+        }
+
         // Datensatz speichern
         try {
             if (this._editId) {

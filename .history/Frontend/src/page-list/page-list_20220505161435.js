@@ -86,7 +86,6 @@ export default class PageList extends Page {
      */
     async _askDelete(id) {
         // Sicherheitsfrage zeigen
-        
         let answer = confirm("Soll die ausgewählte Adresse wirklich gelöscht werden?");
         if (!answer) return;
 

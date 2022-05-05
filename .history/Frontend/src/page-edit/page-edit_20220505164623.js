@@ -93,7 +93,9 @@ export default class PageEdit extends Page {
      */
     async _saveAndExit() {
         // Eingegebene Werte prüfen
-  
+        console.log("hey ihr");
+
+
         this._dataset._id        = this._editId;
         this._dataset.name = this._nameInput.value.trim();
         this._dataset.image  = this._imageInput.value.trim();
