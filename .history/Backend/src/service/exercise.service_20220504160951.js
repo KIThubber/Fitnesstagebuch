@@ -101,7 +101,7 @@ export default class ExerciseService {
      * @return {Promise} Anzahl der gelöschten Datensätze
      */
     async delete(id) {
-        let result = await this._exercises.deleteOne({_id: new ObjectId(id)});
+        let result = await this.exercises.deleteOne({_id: new ObjectId(id)});
         return result.deletedCount;
     }
 }

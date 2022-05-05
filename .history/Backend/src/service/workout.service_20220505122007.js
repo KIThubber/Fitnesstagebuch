@@ -8,12 +8,12 @@ import {ObjectId} from "mongodb";
  * eigentliche Anwendungslogik losgelöst vom technischen Übertragungsweg.
  * Die Adressen werden der Einfachheit halber in einer MongoDB abgelegt.
  */
-export default class ExerciseService {
+export default class WorkoutService {
     /**
      * Konstruktor.
      */
     constructor() {
-        this._exercises = DatabaseFactory.database.collection("exercises");
+        this._workouts = DatabaseFactory.database.collection("workouts");
     }
 
     /**
@@ -26,7 +26,7 @@ export default class ExerciseService {
      * @return {Promise} Liste der gefundenen Adressen
      */
     async search(query) {
-        let cursor = this._exercises.find(query, {
+        let cursor = this._workouts.find(query, {
             sort: {
                 name: 1,
                 
@@ -39,22 +39,19 @@ export default class ExerciseService {
     /**
      * Speichern einer neuen Adresse.
      *
-     * @param {Object} exercise Zu speichernde Adressdaten
+     * @param {Object} workout Zu speichernde Adressdaten
      * @return {Promise} Gespeicherte Adressdaten
      */
-    async create(exercise) {
-        exercise = exercise || {};
+    async create(workout) {
+        workout = workout || {};
 
-        let newExercise = {
-            name:           exercise.name           || "",
-            image:          exercise.image          || "",
-            difficulty:     exercise.difficulty     || "",
-            muscleGroup:    exercise.muscleGroup    || "",
-            description:    exercise.description    || "",
+        let newWorkout = {
+            name:           workout.name           || "",
+            exercises:      workout.exercises      || "",            
         };
 
-        let result = await this._exercises.insertOne(newExercise);
-        return await this._exercises.findOne({_id: result.insertedId});
+        let result = await this._workouts.insertOne(newWorkout);
+        return await this._workouts.findOne({_id: result.insertedId});
     }
 
     /**
@@ -64,7 +61,7 @@ export default class ExerciseService {
      * @return {Promise} Gefundene Adressdaten
      */
     async read(id) {
-        let result = await this._exercises.findOne({_id: new ObjectId(id)});
+        let result = await this._workouts.findOne({_id: new ObjectId(id)});
         return result;
     }
 
@@ -73,25 +70,22 @@ export default class ExerciseService {
      * oder des gesamten Adressobjekts (ohne die ID).
      *
      * @param {String} id ID der gesuchten Adresse
-     * @param {[type]} exercise Zu speichernde Adressdaten
+     * @param {[type]} workout Zu speichernde Adressdaten
      * @return {Promise} Gespeicherte Adressdaten oder undefined
      */
-    async update(id, exercise) {
-        let oldExercise = await this._exercises.findOne({_id: new ObjectId(id)});
-        if (!oldExercise) return;
+    async update(id, workout) {
+        let oldWorkout = await this._workouts.findOne({_id: new ObjectId(id)});
+        if (!oldWorkout) return;
 
         let updateDoc = {
             $set: {},
         }
 
-        if (exercise.name) updateDoc.$set.name = exercise.name;
-        if (exercise.image)  updateDoc.$set.image  = exercise.image;
-        if (exercise.difficulty)      updateDoc.$set.difficulty      = exercise.difficulty;
-        if (exercise.muscleGroup)      updateDoc.$set.muscleGroup      = exercise.muscleGroup;
-        if (exercise.description)      updateDoc.$set.description      = exercise.description;
-
-        await this._exercises.updateOne({_id: new ObjectId(id)}, updateDoc);
-        return this._exercises.findOne({_id: new ObjectId(id)});
+        if (workout.name) updateDoc.$set.name = workout.name;
+        if (workout.exercises)  updateDoc.$set.exercises  = workout.exercises;
+        
+        await this._workouts.updateOne({_id: new ObjectId(id)}, updateDoc);
+        return this._workouts.findOne({_id: new ObjectId(id)});
     }
 
     /**
@@ -101,7 +95,7 @@ export default class ExerciseService {
      * @return {Promise} Anzahl der gelöschten Datensätze
      */
     async delete(id) {
-        let result = await this._exercises.deleteOne({_id: new ObjectId(id)});
+        let result = await this.workouts.deleteOne({_id: new ObjectId(id)});
         return result.deletedCount;
     }
 }
