@@ -1,4 +1,6 @@
-/*** Sytlesheet für indexExercise ***/
+/*** Sytlesheet für indexExercise 
+Am Ende Merge mit Jasmina
+***/
 
 
 /*** 
@@ -82,7 +84,9 @@ main {
     flex-direction: column;
   }
 
-/* Code aus "Astructio Retis AG"-Aufgabe*/
+/* Code aus "Astructio Retis AG"-Aufgabe - in jasmina css einfügen
+v
+*/
 .section-news .card {
   border: 1px solid lightgrey;
   background: white;
@@ -131,6 +135,12 @@ main {
       min-width: 25em;
   }
 }
+/* 
+^
+Code aus "Astructio Retis AG"-Aufgabe - in jasmina css einfügen
+*/
+
+
 /* Code Jasmina*/
 .boxForm {
     width: 100%;
