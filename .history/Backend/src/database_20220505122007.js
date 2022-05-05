@@ -34,18 +34,18 @@ class DatabaseFactory {
         if (await exercises.estimatedDocumentCount() === 0) {
             exercises.insertMany([
                 {
-                    name: "Bankdrücken",
-                    image: "Musterbild",
-                    difficulty: "schwer",
-                    muscleGroup: "Brust",                    
-                    description: "Lege dich auf eine Flachbank. Positioniere deine Beine etwa schulterbreit auf dem Boden. Greife eine Langhantel etwas breiter als schulterbreit und fixiere deine Schultern. Drücke die Hantel.",
+                    name: "Willy",
+                    image: "Tanner",
+                    difficulty: "willy.tanner@alf.com",
+                    muscleGroup: "+49 711 564412",                    
+                    description: "lasssssssssssooooo",
                 },
                 {
-                    name: "Kreuzheben",
-                    image: "Musterbild",
-                    difficulty: "schwer",
-                    muscleGroup: "Rücken",                    
-                    description: "Ziehe eine Langhantel.",
+                    name: "sdfsdf",
+                    image: "Tafsdfsdfr",
+                    difficulty: "willy.tanner@alf.com",
+                    muscleGroup: "+49 711 564412",                    
+                    description: "lasssssssssssooooo",
                 },
             ]);
         }
