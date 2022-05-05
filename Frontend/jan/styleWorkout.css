@@ -87,6 +87,16 @@ main {
 /* Code aus "Astructio Retis AG"-Aufgabe - in jasmina css einfügen
 v
 */
+.section-news .workout-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5em;
+}
+
+
 .section-news .card {
   border: 1px solid lightgrey;
   background: white;
@@ -97,7 +107,8 @@ v
 .section-news .card img {
   display: block;
   width: 100%;
-}
+  height: 50%;
+  }
 
 .section-news .card .card-body {
   padding: 1rem;
