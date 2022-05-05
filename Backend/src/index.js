@@ -8,6 +8,7 @@ import DatabaseFactory from "./database.js";
 import RootController from "./controller/root.controller.js";
 import AdressController from "./controller/address.controller.js";
 import ExerciseController from "./controller/exercise.controller.js";
+import WorkoutController from "./controller/workout.controller.js";
 //import WorkoutController from "./controller/workout.controller.js";
 
 // Verzeichnisnamen der Quellcodedatei ermitteln
@@ -97,6 +98,7 @@ server.use(OpenApiEnforcerMiddleware(openApiEnforcer));
 new RootController(server, "/", openApiFile);
 new AdressController(server, "/address");
 new ExerciseController(server, "/exercise");
+new WorkoutController(server, "/workout");
 //new WorkoutController(server, "/workout");
 // Server tatsächlich starten
 server.listen(config.port, config.host, function() {

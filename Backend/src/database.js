@@ -52,22 +52,22 @@ class DatabaseFactory {
     }
 
 
-    //async _createDemoWorkouts(){
-    //    let exercises = this.database.collection("workouts");
-    //
-    //    if (await exercises.estimatedDocumentCount() === 0) {
-    //        exercises.insertMany([
-    //            {
-    //                name: "Willy",
-    //                exercises: "asdasd",
-    //            },
-    //            {
-    //                name: "sdfsdf",
-    //                exercises: "sdfsdfds",
-    //            },
-    //        ]);
-    //    }
-    //}
+    async _createDemoWorkouts(){
+       let exercises = this.database.collection("workouts");
+    
+       if (await exercises.estimatedDocumentCount() === 0) {
+           exercises.insertMany([
+               {
+                   name: "Willy",
+                   exercises: "asdasd",
+               },
+               {
+                   name: "sdfsdf",
+                   exercises: "sdfsdfds",
+               },
+           ]);
+       }
+    }
 
     
     /**
