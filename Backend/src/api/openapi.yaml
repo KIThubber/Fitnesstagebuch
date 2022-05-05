@@ -183,6 +183,116 @@ paths:
                   $ref: '#/components/schemas/HATEOAS_Collection'
       operationId: get
       description: HATEOAS Verlinkungen auf die einzelnen Collections
+  /workout:
+    post:
+      summary: Erstelle Workout
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workout'
+      operationId: post-workout
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: name
+        - schema:
+            type: string
+          in: query
+          name: exercises
+    get:
+      summary: Suche Workouts
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Workout'
+      operationId: get-workout
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: name
+        - schema:
+            type: string
+          in: query
+          name: exercises
+  '/workout/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Einzelnes Workout suchen
+      tags:
+        - workout
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workout'
+        '404':
+          description: Not Found
+      operationId: get-workout-id
+    patch:
+      summary: Einzelne Elemente des Workouts abändern
+      tags:
+        - workout
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workout'
+        '404':
+          description: Not Found
+      operationId: patch-workout-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workout'
+        description: ''
+    delete:
+      summary: Workout loeschen
+      tags:
+        - workout
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      operationId: delete-workout-id
+    put:
+      summary: Workout abändern komplett
+      tags:
+        - workout
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      operationId: put-workout-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workout'
+        description: ''
 components:
   schemas:
     Exercise:
@@ -249,5 +359,23 @@ components:
           $ref: '#/components/schemas/HATEOAS_Link'
         delete:
           $ref: '#/components/schemas/HATEOAS_Link'
+    Workout:
+      title: Workout
+      x-stoplight:
+        id: eeoecvcyhn8zx
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        exercises:
+          type: array
+          items:
+            $ref: '#/components/schemas/Exercise'
+        _links:
+          $ref: '#/components/schemas/HATEOAS_Link'
 tags:
   - name: Start
+
+
