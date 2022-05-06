@@ -39,13 +39,14 @@ class App {
         show: (matches) => -this._gotoDescription(matches[1]),
       },
       {
+        url: "^/workout/(.*)$",
+        show: (matches) => -this._gotoWorkout(matches[1]),
+      },
+      //last one
+      {
         url: ".*",
         show: () => this._gotoList(),
       },
-      {
-        url: "^/workout/(.*)$",
-        show: (matches) => -this._gotoWorkout(matches[1]),
-      },      
     ]);
 
     // Fenstertitel merken, um später den Name der aktuellen Seite anzuhängen
@@ -148,7 +149,9 @@ class App {
   async _gotoWorkout() {
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
-      let { default: PageEdit } = await import("./Workoutmanagement/workoutselection.js");
+      let { default: PageEdit } = await import(
+        "./Workoutmanagement/workoutselection.js"
+      );
 
       let page = new WorkoutSelection(this, id);
       await page.init();
