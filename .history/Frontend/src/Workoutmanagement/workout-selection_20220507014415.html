@@ -1,0 +1,95 @@
+<!-- Stylesheet der Seite -->
+<style>
+    /* LISTENEINTRÄGE */
+    main{
+        margin: 1em;
+    }
+    main ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border:20px #F2F2F2;
+    }
+
+    main li {
+        margin: 1em;
+        padding: 1em;
+        
+        background-color: white;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    main li:hover {
+        background-color: #C8F8FF;
+    }
+
+    main .name {
+        font-size: 150%;
+        font-weight: bold;
+    }
+
+    /* AKTIONSBUTTONS */
+    main .actions {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    main .actions > div {
+        padding: 0.5em;
+        margin: 0.5em;
+
+        background-color: #C8F8FF;
+
+        flex: 1;
+        text-align: center;
+    }
+
+    main .actions > div:first-child {
+        margin-left: 0;
+    }
+
+    main .actions > div:last-child {
+        margin-right: 0;
+    }
+
+    main .actions > div:hover {
+        background-color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    @media (min-width: 900px) {
+    /*iPad*/
+      ol {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+  }
+  
+  @media (min-width: 1194px) {
+    /*display groß*/
+      ol {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+  }
+</style>
+
+<!-- Inhalt der Seite -->
+<main>
+    <ol>
+          
+        <li class="list-entry" data-id="$ID$">
+            
+            <div class="name">
+                $NAME$
+            
+                <div class="action selectWorkout">
+                    <a> Exercise zu diesem Workout hinzufuegen </a>
+                </div>
+             
+        </li>
+ 
+    </ol>
+</main>
+
