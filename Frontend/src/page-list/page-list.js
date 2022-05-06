@@ -108,7 +108,7 @@ export default class PageList extends Page {
    */
   async _askDelete(id) {
     // Sicherheitsfrage zeigen
-
+    
     let answer = confirm(
       "Soll die ausgewählte Übung wirklich gelöscht werden?"
     );
