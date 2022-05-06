@@ -50,11 +50,7 @@ async init() {
       this._dataset = await this._app.backend.fetch("GET", this._url);
       this._title = `${this._dataset.name} ${this._dataset.image}`;
     
-      let { default: WorkoutAddition } = await import(
-        "./workoutaddition.js"
-      );
-
-      let page = new WorkoutAddition(this);
+     
       
 
 }

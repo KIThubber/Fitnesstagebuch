@@ -78,16 +78,43 @@
 <!-- Inhalt der Seite -->
 <main>
     <ol>
-          
+        <!-- Platzhalter für eine leere Liste -->
+        <li class="empty-placeholder">
+            <div class="name">
+                Keine Einträge vorhanden
+            </div>
+        </li>
+
+        <!-- Vorlage für einen Eintrag in der Liste -->
+  
         <li class="list-entry" data-id="$ID$">
-            
+            <div class="field phone">
+                $IMAGE$
+            </div>
             <div class="name">
                 $NAME$
-            
-                <div class="action selectWorkout">
-                    <a> Exercise zu diesem Workout hinzufuegen </a>
+            </div>
+            <div class="field email">
+                $DIFFICULTY$
+            </div>
+            <div class="field email">
+                $MUSCLEGROUP$
+            </div>
+            <div class="actions">
+                <div class="action description"> 
+                    <a>Info</a>
                 </div>
-             
+                <div class="action addToWorkout">
+                    <a> zu Workout hinzufügen </a>
+                </div>
+                <div class="action edit">
+                    <a>Bearbeiten</a>
+                </div>
+                <div class="action delete">
+                    <a>Löschen</a>
+                </div>
+            </div>
+        </div>
         </li>
  
     </ol>
