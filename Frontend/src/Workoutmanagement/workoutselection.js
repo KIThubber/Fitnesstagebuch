@@ -1,7 +1,7 @@
 "use strict";
 
 import Page from "../page.js";
-import HtmlTemplate from "./workout-selection.html";
+//import HtmlTemplate from "./workout-selection.html";
 
 
 export default class WorkoutSelection extends Page {
