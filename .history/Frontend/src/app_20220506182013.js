@@ -42,10 +42,6 @@ class App {
         url: ".*",
         show: () => this._gotoList(),
       },
-      {
-        url: "^/workout/(.*)$",
-        show: () => this._gotoWorkout(),
-      },
     ]);
 
     // Fenstertitel merken, um später den Name der aktuellen Seite anzuhängen
@@ -145,18 +141,6 @@ class App {
     }
   }
 
-  async _gotoWorkout() {
-    try {
-      // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
-      let { default: PageEdit } = await import("./Workoutmanagement/workoutselection.js");
-
-      let page = new PageEdit(this, id);
-      await page.init();
-      this._showPage(page, "Workout");
-    } catch (ex) {
-      this.showException(ex);
-    }
-  }
   /**
    * Interne Methode zum Umschalten der sichtbaren Seite.
    *
