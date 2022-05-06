@@ -93,8 +93,11 @@ export default class PageList extends Page {
         );
     liElement
         .querySelector(".action.addToWorkout")
-        .addEventListener("click", () => this._(dataset._id));
-    }
+        .addEventListener(
+          "click",
+          () => (location.hash = `#/workout/${dataset._id}`)
+        );
+      }
   }
 
   /**

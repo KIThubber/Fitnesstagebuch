@@ -44,8 +44,8 @@ class App {
       },
       {
         url: "^/workout/(.*)$",
-        show: () => this._gotoWorkout(),
-      },
+        show: (matches) => -this._gotoWorkout(matches[1]),
+      },      
     ]);
 
     // Fenstertitel merken, um später den Name der aktuellen Seite anzuhängen
@@ -150,7 +150,7 @@ class App {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: PageEdit } = await import("./Workoutmanagement/workoutselection.js");
 
-      let page = new PageEdit(this, id);
+      let page = new WorkoutSelection(this, id);
       await page.init();
       this._showPage(page, "Workout");
     } catch (ex) {
