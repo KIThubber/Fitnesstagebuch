@@ -107,7 +107,7 @@ body {
       /* mouse over link */
       a:hover {
         color: black;
-        text-decoration: underline;
+        text-decoration: none;
         padding: 1em;
       }
       

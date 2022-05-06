@@ -83,6 +83,13 @@ export default class PageList extends Page {
       liElement
         .querySelector(".action.delete")
         .addEventListener("click", () => this._askDelete(dataset._id));
+
+      liElement
+        .querySelector(".action.description")
+        .addEventListener(
+          "click",
+          () => (location.hash = `#/description/${dataset._id}`)
+        );
     }
   }
 
@@ -96,7 +103,7 @@ export default class PageList extends Page {
     // Sicherheitsfrage zeigen
 
     let answer = confirm(
-      "Soll die ausgewählte Adresse wirklich gelöscht werden?"
+      "Soll die ausgewählte Übung wirklich gelöscht werden?"
     );
     if (!answer) return;
 

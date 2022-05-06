@@ -35,6 +35,10 @@ class App {
         show: (matches) => this._gotoEdit(matches[1]),
       },
       {
+        url: "^/description/(.*)$",
+        show: (matches) => -this._gotoDescription(matches[1]),
+      },
+      {
         url: ".*",
         show: () => this._gotoList(),
       },
@@ -81,7 +85,7 @@ class App {
   }
 
   /**
-   * Seite zum Anlegen einer neuen Adresse anzeigen.  Wird vom Single Page
+   * Seite zum Anlegen einer neuen Übung anzeigen.  Wird vom Single Page
    * Router aufgerufen.
    */
   async _gotoNew() {
@@ -98,7 +102,7 @@ class App {
   }
 
   /**
-   * Seite zum Bearbeiten einer Adresse anzeigen.  Wird vom Single Page
+   * Seite zum Bearbeiten einer Übung anzeigen.  Wird vom Single Page
    * Router aufgerufen.
    *
    * @param {Number} id ID der zu bearbeitenden Adresse
@@ -111,6 +115,27 @@ class App {
       let page = new PageEdit(this, id);
       await page.init();
       this._showPage(page, "edit");
+    } catch (ex) {
+      this.showException(ex);
+    }
+  }
+
+  /**
+   * Seite zum lesen einer neuen Übung.  Wird vom Single Page
+   * Router aufgerufen.
+   */
+  async _gotoDescription() {
+    try {
+      console.log("test");
+
+      // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
+      let { default: PageDescription } = await import(
+        "./page-description/page-description.js"
+      );
+
+      let page = new PageDescription(this);
+      await page.init();
+      this._showPage(page, "description");
     } catch (ex) {
       this.showException(ex);
     }
