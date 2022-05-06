@@ -42,7 +42,10 @@ async init() {
     
     await super.init();
     
-    
+    let answer = confirm(
+        "ypypy"
+      );
+      if (!answer) return;
 
     // Datensatz laden
     
@@ -51,10 +54,7 @@ async init() {
       this._title = `${this._dataset.name} ${this._dataset.image}`;
     
      
-      let answer = confirm(
-        this._dataset.name
-      );
-      if (!answer) return;
+
 
 }
 }

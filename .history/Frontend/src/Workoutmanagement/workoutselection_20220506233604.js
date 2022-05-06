@@ -52,7 +52,7 @@ async init() {
     
      
       let answer = confirm(
-        this._dataset.name
+        "ypypy"
       );
       if (!answer) return;
 

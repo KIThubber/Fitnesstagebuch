@@ -52,8 +52,7 @@ async init() {
     
      
       let answer = confirm(
-        this._dataset.name
-      );
+        this._dataset
       if (!answer) return;
 
 }

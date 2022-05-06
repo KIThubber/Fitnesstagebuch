@@ -153,7 +153,11 @@ class App {
    * @param {Number} id ID der zu bearbeitenden Adresse
    */
   async _gotoWorkout(id) {
-    
+    let answer = confirm(
+      "ypypy"
+    );
+    if (!answer) return;
+  await super.init();
     
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports

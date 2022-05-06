@@ -146,18 +146,10 @@ class App {
     }
   }
 
-   /**
-   * Seite zum Bearbeiten einer Übung anzeigen.  Wird vom Single Page
-   * Router aufgerufen.
-   *
-   * @param {Number} id ID der zu bearbeitenden Adresse
-   */
-  async _gotoWorkout(id) {
-    
-    
+  async _gotoWorkout() {
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
-      let { default: WorkoutSelection } = await import(
+      let { default: workoutSelection } = await import(
         "./Workoutmanagement/workoutselection.js"
       );
 

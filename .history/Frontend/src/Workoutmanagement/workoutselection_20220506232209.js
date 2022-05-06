@@ -38,9 +38,7 @@ export default class WorkoutSelection extends Page {
 
 async init() {
     // HTML-Inhalt nachladen
-   
     
-    await super.init();
     
     
 
@@ -51,10 +49,7 @@ async init() {
       this._title = `${this._dataset.name} ${this._dataset.image}`;
     
      
-      let answer = confirm(
-        this._dataset.name
-      );
-      if (!answer) return;
+
 
 }
 }

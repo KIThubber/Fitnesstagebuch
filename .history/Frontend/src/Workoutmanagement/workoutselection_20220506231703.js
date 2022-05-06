@@ -1,7 +1,7 @@
 "use strict";
 
 import Page from "../page.js";
-import HtmlTemplate from "./workout-selection.html";
+//import HtmlTemplate from "./workout-selection.html";
 
 
 export default class WorkoutSelection extends Page {
@@ -38,11 +38,13 @@ export default class WorkoutSelection extends Page {
 
 async init() {
     // HTML-Inhalt nachladen
-   
     
+    
+    let answer = confirm(
+        "ypypy"
+      );
+      if (!answer) return;
     await super.init();
-    
-    
 
     // Datensatz laden
     
@@ -51,10 +53,7 @@ async init() {
       this._title = `${this._dataset.name} ${this._dataset.image}`;
     
      
-      let answer = confirm(
-        this._dataset.name
-      );
-      if (!answer) return;
+
 
 }
 }

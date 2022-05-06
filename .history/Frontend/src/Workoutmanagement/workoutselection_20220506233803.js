@@ -52,7 +52,7 @@ async init() {
     
      
       let answer = confirm(
-        this._dataset.name
+        ${this._exerciseId}
       );
       if (!answer) return;
 
