@@ -21,7 +21,7 @@ html {
 }
 
 body {
-    background-color: white;
+    background-color: #F2F2F2;
     margin: 0;
     padding: 0;
 
@@ -68,7 +68,7 @@ body {
   .icon nav{
     margin-top: 12px;
     height: 1.7em;
-    padding: 7px;
+    /* padding: 7px; */
   }
   
   h1 {
@@ -108,6 +108,7 @@ body {
       a:hover {
         color: black;
         text-decoration: underline;
+        padding: 1em;
       }
       
       /* selected link */
@@ -119,10 +120,11 @@ body {
 /* NAVIGATION */
 
 #app-menu {
+    background-color: #F2F2F2;
     user-select: none;
     color: black;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
  #app-menu ul {
@@ -133,15 +135,20 @@ body {
     margin-left: 5px;
     display: inline;
     cursor: pointer;
+    background-color: white;
+    padding: 1em;
   }
 
+  #app-menu nav a:hover {
+      background-color: #C8F8FF;
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+  }
 
-
-/* nav.non-interactive a:hover {
+nav.non-interactive a:hover {
     cursor: default;
-} */
-
-
+}
 
 
 /*** 
@@ -152,7 +159,7 @@ main
 
 main {
     background-color: #F2F2F2;
-    margin: 0;
+    margin: 1em;
     padding: 2em;
   
     display: flex;
