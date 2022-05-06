@@ -6,92 +6,229 @@
  * Spezifische Angaben zur Listenübersicht oder dem Eingabeformular gehören
  * stattdessen in das jeweilige Stylesheet.
  */
-@import url('https://fonts.googleapis.com/css?family=Rubik');
 
-/* ALLGEMEINES */
-/* html, body {
-    padding: 0;
-    margin: 0;
-} */
+/*** 
+
+ALLGEMEINES 
+
+***/
 
 html {
     font-family: arial;
     font-size: 12pt;
-    line-height: 1.6;
+    padding: 0;
+    margin: 0;
 }
+
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+      grid-template-areas:
+      "a"
+      "b"
+      "c"
+      "d"; 
+  }
+
+  header{
+    grid-area: a;
+  }
+  nav{
+      grid-area:b;
+  }
+  main{
+    grid-area: c;
+  }
+  footer{
+    grid-area: d;
+  }
 
 .hidden {
     display: none;
 }
 
+  /*** 
+  
+  Header 
+  
+  ***/
 
-
-
-
-@media (min-width: 40em) {
-    html {
-        /* http://bg.siteorigin.com/ */
-        background-color: #669ac4;
-        background-image: url(img/background.png);
-
-        font-size: 11pt;
-    }
-
-    body {
-        max-width: 40em;
-        margin: 0 auto;
-        margin-top: 2em;
-        margin-bottom: 2em;
-
-        border: 1px solid #202020;
-        box-shadow: 1px 1px 3px rgba(0,0,0, 0.5);
-
-    }
-}
-
-/* NAVIGATION */
-nav {
-    user-select: none;
-
-    background-color: #404040;
-    color: white;
-
-    border: 0px solid #202020;
-    border-bottom-width: 3px;
-}
-
-nav a,
-nav a:visited,
-nav a:hover {
-    color: white;
-    text-decoration: none;
-
-    display: block;
-    padding: 1em;
-}
-
-nav.non-interactive a:hover {
-    cursor: default;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: -3px;
+  header {
+    background-color: white;
+    padding: 1em 2em;
 
     display: flex;
+    justify-content: space-between;
+  }
+
+  .icon nav{
+    margin-top: 12px;
+    height: 1.7em;
+    padding: 7px;
+  }
+  
+  h1 {
+    font-size: 28pt;
+    font-weight: bold;
+  }
+
+ /* nav und links für header*/
+ .buttonicon {
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    height: 48px;
+  }
+  .buttonicon ul {
+    list-style: none;
+    display: flex;
+  }
+  .buttonicon li {
+    margin-left: 5px;
+    display: inline;
+    cursor: pointer;
+  }
+
+    /* unvisited link */
+    a:link {
+        color: black;
+        text-decoration: none;
+      }
+    
+      /* visited link */
+      a:visited {
+        color: black;
+      }
+      
+      /* mouse over link */
+      a:hover {
+        color: black;
+        text-decoration: underline;
+      }
+      
+      /* selected link */
+      a:active {
+        color: black;
+      }
+
+
+/* NAVIGATION */
+
+#app-menu {
+    user-select: none;
+    color: black;
+    display: flex;
+    justify-content: space-between;
 }
 
-nav li.active {
-    background-color: #333333;
-    border: 0px solid rgb(33, 146, 187);
-    border-bottom-width: 3px;
+ #app-menu ul {
+    list-style: none;
+    display: flex;
+  }
+  #app-menu li {
+    margin-left: 5px;
+    display: inline;
+    cursor: pointer;
+  }
+
+
+
+/* nav.non-interactive a:hover {
+    cursor: default;
+} */
+
+
+
+
+/*** 
+
+main 
+
+***/
+
+main {
+    background-color: #F2F2F2;
+    margin: 0;
+    padding: 2em;
+  
+    display: flex;
+    flex-direction: column;
+  }
+
+/*** 
+
+footer 
+
+***/
+footer {
+  background-color: #F2F2F2;
+  padding: 2em;
 }
 
-nav li:hover {
-    background-color: #505050;
-
-    border: 0px solid rgb(103, 197, 231);
-    border-bottom-width: 3px;
+.ftitle {
+  display: flex;
+  justify-content: left;
 }
+h4 {
+  font-size: 24pt;
+  font-weight: bold;
+}
+
+.footerblock {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer li {
+  margin-bottom: 1.5em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+
+/***
+
+responsive Webdesign
+
+***/
+
+@media (min-width: 900px) {
+    /*iPad*/
+    .icon {
+      margin-top: 12px;
+      height: 2em;
+      padding: 12px;
+    }
+    footer {
+        padding: 2em 5em;
+        font-size: 13pt;
+      }
+  }
+  
+  @media (min-width: 1194px) {
+    /*display groß*/
+    footer {
+        padding: 2em 7em;
+      }      
+  }
+  
+  @media (min-width: 1440px) {
+    /*display groeßer*/
+    footer {
+        padding: 2em 10em;
+        font-size: 14pt;
+      }
+  }
+  

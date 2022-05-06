@@ -8,23 +8,20 @@
     }
 
     main li {
-        margin: 0;
+        margin: 1em;
         padding: 1em;
-        padding-bottom: 0.5em;
-
+        
         background-color: white;
-        transition: background-color 0.5s;
-
-        border: 0px solid lightgrey;
-        border-bottom-width: 1px;
+        border-radius: 20px 20px 20px 20px;
     }
 
     main li:hover {
-        background-color: #fafafa;
+        background-color: #C8F8FF;
     }
 
     main .name {
         font-size: 150%;
+        font-weight: bold;
     }
 
     /* AKTIONSBUTTONS */
@@ -56,6 +53,22 @@
         background-color: #f0f0f0;
         cursor: pointer;
     }
+
+    @media (min-width: 900px) {
+    /*iPad*/
+      ol {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+  }
+  
+  @media (min-width: 1194px) {
+    /*display groß*/
+      ol {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+  }
 </style>
 
 <!-- Inhalt der Seite -->
@@ -70,23 +83,27 @@
 
         <!-- Vorlage für einen Eintrag in der Liste -->
         <li class="list-entry" data-id="$ID$">
-            <div class="name">
-                $NAME$
-            </div>
             <div class="field phone">
                 $IMAGE$
+            </div>
+            <div class="name">
+                $NAME$
             </div>
             <div class="field email">
                 $DIFFICULTY$
             </div>
+            <div class="field email">
+                $MUSCLEGROUP$
+            </div>
             <div class="actions">
                 <div class="action edit">
-                    <a>🖊️</a>
+                    <a>Bearbeiten</a>
                 </div>
                 <div class="action delete">
-                    <a>🗑️</a>
+                    <a>Löschen</a>
                 </div>
             </div>
         </li>
     </ol>
 </main>
+
