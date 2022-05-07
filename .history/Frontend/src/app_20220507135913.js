@@ -134,7 +134,7 @@ class App {
    * Seite zum lesen einer neuen Übung.  Wird vom Single Page
    * Router aufgerufen.
    */
-  async _gotoDescription() {
+  async _gotoDescription(id) {
     try {
       console.log("test");
 
@@ -143,7 +143,7 @@ class App {
         "./page-description/page-description.js"
       );
 
-      let page = new PageDescription(this);
+      let page = new PageDescription(this, id);
       await page.init();
       this._showPage(page, "description");
     } catch (ex) {
