@@ -3,6 +3,7 @@
 
     main{
         background-color: white;
+        font-size: 12pt;
     }
 
     .des{
@@ -22,6 +23,7 @@
     .name{
         font-weight: bold;
         font-size: 16pt;
+        margin-bottom: 10px;
     }
 
     .image{
@@ -38,12 +40,24 @@
         border: none;
         padding: 1em;
         width: 100%;
+        font-size: 12pt;
     }
 
-
+    @media (min-width: 900px) {
+    /*iPad*/
+        main {
+            font-size: 16;
+        }
+    }
+  
+     @media (min-width: 1194px) {
+    /*display groß*/
+        main {
+            font-size: 18;
+        }
+    }
 
 </style>
-
 
 <!-- Inhalt der Seite -->
     <main>
@@ -53,7 +67,6 @@
                 <div class="name">
                     $NAME$
                 </div>
-                <p> </p>
                 <div class="difficulty">
                     $DIFFICULTY$
                 </div>

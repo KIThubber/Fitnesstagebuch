@@ -1,5 +1,29 @@
 <!-- Stylesheet der Seite -->
 <style>
+    /* Layout Box */
+    .info{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "a b"
+        "c b"
+        "d b";
+    }
+
+    .name{
+        grid-area:a;
+    }
+    .difficulty{
+        grid-area:c;
+    }
+    .musclegroup{
+        grid-area:d;
+    }
+    .image{
+        grid-area:b;
+    }
+
+
     /* LISTENEINTRÄGE */
     main{
         margin: 1em;
@@ -30,8 +54,10 @@
 
     /* AKTIONSBUTTONS */
     main .actions {
+        padding-top: 10px;
         display: flex;
-        justify-content: space-between;
+        flex-direction: row;
+        /* justify-content: space-between; */
     }
 
     main .actions > div {
@@ -88,18 +114,21 @@
         <!-- Vorlage für einen Eintrag in der Liste -->
   
         <li class="list-entry" data-id="$ID$">
-            <div class="image">
-                $IMAGE$
+            <div class="info">
+                <div class="name">
+                    $NAME$
+                </div>
+                <div class="difficulty">
+                    $DIFFICULTY$
+                </div>
+                <div class="musclegroup">
+                    $MUSCLEGROUP$
+                </div>
+                <div class="image">
+                    $IMAGE$
+                </div>
             </div>
-            <div class="name">
-                $NAME$
-            </div>
-            <div class="difficulty">
-                $DIFFICULTY$
-            </div>
-            <div class="musclegroup">
-                $MUSCLEGROUP$
-            </div>
+            
             <div class="actions">
                 <div class="action description"> 
                     <a>Info</a>
