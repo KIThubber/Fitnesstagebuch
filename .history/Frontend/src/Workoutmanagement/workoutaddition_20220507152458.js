@@ -32,7 +32,7 @@ export default class WorkoutAddition{
         //this._dataset = await app.backend.fetch("GET", url);
         //this._title = `${this._dataset.name} ${this._dataset.image}`;
 
-    this._app = app;     
+         
     this._dataset._id = this._workoutId;
     this._dataset.name = this.name;
     this._dataset.exercises = this._dataset.exercises.push(exercisedataset);
