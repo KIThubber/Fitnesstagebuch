@@ -1,13 +1,13 @@
 "use strict";
 
 import Page from "../page.js";
-import HtmlTemplate from "./page-workout.html";
+import HtmlTemplate from "./page-workouthinzufuegen.html";
 
 /**
  * Klasse PageList: Stellt die Listenübersicht zur Verfügung
  */
  //export default class WorkoutSelection extends Page {
-export default class WorkoutOverview extends Page {
+export default class WorkoutOverviewhinzufuegen extends Page {
   /**
    * Konstruktor.
    *
@@ -91,12 +91,12 @@ export default class WorkoutOverview extends Page {
       
   //       );
   //     // Warum hier? Workout hinzufügen Jan
-      // liElement
-      //     .querySelector(".action.addToWorkout")
-      //     .addEventListener(
-      //       "click",
-      //       () => (location.hash = `#/workoutOverview/${dataset._id}`)
-      //     );
+      liElement
+          .querySelector(".action.addtothisWorkout")
+          .addEventListener(
+            "click",
+            () => (location.hash = `^/new/$`)
+          );
       // }
   }
 

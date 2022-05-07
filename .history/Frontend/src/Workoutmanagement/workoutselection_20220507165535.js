@@ -51,9 +51,13 @@ async init() {
         "./page-workouthinzufuegen.js"
       );
 
-    let page = new WorkoutOverviewhinzufuegen(this._app);
+    let page = new WorkoutOverviewhinzufuegen(this);
 
-  
+     
+    let answer = confirm(
+        this._dataset.name
+      );
+      if (!answer) return;
 
     await page.init();
 

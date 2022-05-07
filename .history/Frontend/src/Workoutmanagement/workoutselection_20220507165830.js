@@ -51,7 +51,7 @@ async init() {
         "./page-workouthinzufuegen.js"
       );
 
-    let page = new WorkoutOverviewhinzufuegen(this._app);
+    let page = new WorkoutOverviewhinzufuegen(this);
 
   
 

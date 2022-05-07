@@ -44,30 +44,25 @@ async init() {
     this._url = `/exercise/${this._exerciseId}`;
     this._dataset = await this._app.backend.fetch("GET", this._url);
     //this._title = `${this._dataset.name} ${this._dataset.image}`;
-   
-
-
+    
     let { default: WorkoutOverviewhinzufuegen } = await import(
-        "./page-workouthinzufuegen.js"
+        "./workoutoverviewhinzufuegen.js"
       );
 
-    let page = new WorkoutOverviewhinzufuegen(this._app);
-
-  
-
-    await page.init();
-
-    
+    let Page = new WorkoutOverviewhinzufuegen(this);
+    Page.init();
 
 
-    //   let { default: WorkoutAddition } = await import(
-    //     "./workoutaddition.js"
-    //   );
+
+
+      let { default: WorkoutAddition } = await import(
+        "./workoutaddition.js"
+      );
 
 
       
-    //   let Additor = new WorkoutAddition(this);
-    //   Additor.saveandreturnWorkoutAddition(this._dataset, this._app);
+      let Additor = new WorkoutAddition(this);
+      Additor.saveandreturnWorkoutAddition(this._dataset, this._app);
 
 
 }

@@ -44,20 +44,21 @@ async init() {
     this._url = `/exercise/${this._exerciseId}`;
     this._dataset = await this._app.backend.fetch("GET", this._url);
     //this._title = `${this._dataset.name} ${this._dataset.image}`;
-   
+    
+    let answer = confirm(
+        this._dataset.name
+      );
+      if (!answer) return;
 
 
     let { default: WorkoutOverviewhinzufuegen } = await import(
         "./page-workouthinzufuegen.js"
       );
 
-    let page = new WorkoutOverviewhinzufuegen(this._app);
-
-  
-
+    let page = new WorkoutOverviewhinzufuegen(this);
     await page.init();
 
-    
+
 
 
     //   let { default: WorkoutAddition } = await import(

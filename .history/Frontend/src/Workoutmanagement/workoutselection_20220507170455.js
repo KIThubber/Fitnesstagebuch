@@ -37,7 +37,10 @@ async init() {
     
     await super.init();
     
-    
+    let answer = confirm(
+        this._app
+      );
+      if (!answer) return;
 
     // Datensatz laden
     
@@ -51,7 +54,7 @@ async init() {
         "./page-workouthinzufuegen.js"
       );
 
-    let page = new WorkoutOverviewhinzufuegen(this._app);
+    let page = new WorkoutOverviewhinzufuegen(this);
 
   
 

@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 
 import Page from "../page.js";
 import HtmlTemplate from "./page-workout.html";

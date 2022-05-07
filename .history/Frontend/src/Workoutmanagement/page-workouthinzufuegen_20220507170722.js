@@ -1,13 +1,13 @@
 "use strict";
 
 import Page from "../page.js";
-import HtmlTemplate from "./page-workout.html";
+import HtmlTemplate from "./page-workouthinzufuegen.html";
 
 /**
  * Klasse PageList: Stellt die Listenübersicht zur Verfügung
  */
  //export default class WorkoutSelection extends Page {
-export default class WorkoutOverview extends Page {
+export default class WorkoutOverviewhinzufuegen extends Page {
   /**
    * Konstruktor.
    *
@@ -15,6 +15,7 @@ export default class WorkoutOverview extends Page {
    */
   constructor(app) {
     super(app, HtmlTemplate);
+
 
     this._emptyMessageElement = null;
   }
@@ -34,14 +35,30 @@ export default class WorkoutOverview extends Page {
    * Apps würde man ggf. eine Template Engine wie z.B. Nunjucks integrieren
    * und den JavaScript-Code dadurch deutlich vereinfachen.
    */
+
+
+
    async init() {
     // HTML-Inhalt nachladen
+
+    
+
     await super.init();
+       
+    
+
     this._title = "Übersicht";
 
     // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
     // let data = await this._app.backend.fetch("GET", "/workoutOverview");
     let data = await this._app.backend.fetch("GET", "/workout");
+    
+    let answer = confirm(
+        data
+      );
+      if (!answer) return;
+   
+
     this._emptyMessageElement =
       this._mainElement.querySelector(".empty-placeholder");
 
@@ -91,12 +108,12 @@ export default class WorkoutOverview extends Page {
       
   //       );
   //     // Warum hier? Workout hinzufügen Jan
-      // liElement
-      //     .querySelector(".action.addToWorkout")
-      //     .addEventListener(
-      //       "click",
-      //       () => (location.hash = `#/workoutOverview/${dataset._id}`)
-      //     );
+      liElement
+          .querySelector(".action.addtothisWorkout")
+          .addEventListener(
+            "click",
+            () => (location.hash = `^/new/$`)
+          );
       // }
   }
 
