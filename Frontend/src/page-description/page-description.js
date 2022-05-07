@@ -11,7 +11,7 @@ export default class PageDescription extends Page {
    * Konstruktor.
    *
    * @param {App} app Instanz der App-Klasse
-   * @param {Integer} editId ID des bearbeiteten Datensatzes
+   * @param {Integer} descriptionId ID des bearbeiteten Datensatzes
    */
   constructor(app, descriptionId) {
     super(app, HtmlTemplate);
