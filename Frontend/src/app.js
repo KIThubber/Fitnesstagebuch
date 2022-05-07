@@ -47,7 +47,7 @@ class App {
         show: (matches) => -this._gotoWorkoutOverview(matches[1]),
       },
       //last one
-      
+
       {
         url: ".*",
         show: () => this._gotoList(),
@@ -151,15 +151,13 @@ class App {
     }
   }
 
-   /**
+  /**
    * Seite zum Bearbeiten einer Übung anzeigen.  Wird vom Single Page
    * Router aufgerufen.
    *
    * @param {Number} id ID der zu bearbeitenden Adresse
    */
   async _gotoWorkout(id) {
-    
-    
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: WorkoutSelection } = await import(
@@ -174,7 +172,7 @@ class App {
     }
   }
 
-    /**
+  /**
    * Seite zum Bearbeiten einer Übung anzeigen.  Wird vom Single Page
    * Router aufgerufen.
    *
@@ -186,7 +184,7 @@ class App {
       let { default: PageWorkout } = await import(
         "./page-workout/page-workout.js"
       );
-  
+
       let page = new PageWorkout(this, id);
       await page.init();
       this._showPage(page, "workoutOverview");
@@ -195,8 +193,7 @@ class App {
     }
   }
 
-  
-//}
+  //}
   /**
    * Interne Methode zum Umschalten der sichtbaren Seite.
    *
