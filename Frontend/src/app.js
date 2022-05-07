@@ -129,16 +129,14 @@ class App {
    * Seite zum lesen einer neuen Übung.  Wird vom Single Page
    * Router aufgerufen.
    */
-  async _gotoDescription() {
+  async _gotoDescription(id) {
     try {
-      console.log("test");
-
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: PageDescription } = await import(
         "./page-description/page-description.js"
       );
 
-      let page = new PageDescription(this);
+      let page = new PageDescription(this, id);
       await page.init();
       this._showPage(page, "description");
     } catch (ex) {
@@ -146,15 +144,13 @@ class App {
     }
   }
 
-   /**
+  /**
    * Seite zum Bearbeiten einer Übung anzeigen.  Wird vom Single Page
    * Router aufgerufen.
    *
    * @param {Number} id ID der zu bearbeitenden Adresse
    */
   async _gotoWorkout(id) {
-    
-    
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: WorkoutSelection } = await import(

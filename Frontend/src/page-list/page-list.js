@@ -88,16 +88,15 @@ export default class PageList extends Page {
         .querySelector(".action.description")
         .addEventListener(
           "click",
-          () => (location.hash = `#/description/${dataset._id}`)         
-      
+          () => (location.hash = `#/description/${dataset._id}`)
         );
-    liElement
+      liElement
         .querySelector(".action.addToWorkout")
         .addEventListener(
           "click",
           () => (location.hash = `#/workout/${dataset._id}`)
         );
-      }
+    }
   }
 
   /**
@@ -108,7 +107,7 @@ export default class PageList extends Page {
    */
   async _askDelete(id) {
     // Sicherheitsfrage zeigen
-    
+
     let answer = confirm(
       "Soll die ausgewählte Übung wirklich gelöscht werden?"
     );

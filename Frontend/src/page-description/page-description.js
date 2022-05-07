@@ -13,11 +13,11 @@ export default class PageDescription extends Page {
    * @param {App} app Instanz der App-Klasse
    * @param {Integer} editId ID des bearbeiteten Datensatzes
    */
-  constructor(app, editId) {
+  constructor(app, descriptionId) {
     super(app, HtmlTemplate);
 
     // Bearbeiteter Datensatz
-    this._editId = editId;
+    this._descriptionId = descriptionId;
   }
 
   /**
@@ -40,8 +40,8 @@ export default class PageDescription extends Page {
     await super.init();
 
     // Bearbeiteten Datensatz laden
-    if (this._editId) {
-      this._url = `/exercise/${this._editId}`;
+    if (this._descriptionId) {
+      this._url = `/exercise/${this._descriptionId}`;
       this._dataset = await this._app.backend.fetch("GET", this._url);
       this._title = `${this._dataset.name} ${this._dataset.image}`;
     } else {
@@ -51,11 +51,11 @@ export default class PageDescription extends Page {
 
     // Platzhalter im HTML-Code ersetzen
     let html = this._mainElement.innerHTML;
-    // html = html.replace("$NAME$", this._dataset.name);
-    // html = html.replace("$IMAGE$", this._dataset.image);
-    // html = html.replace("$DIFFICULTY$", this._dataset.difficulty);
-    // html = html.replace("$MUSCLEGROUP$", this._dataset.muscleGroup);
-    // html = html.replace("$DESCRIPTION$", this._dataset.description);
+    html = html.replace("$NAME$", this._dataset.name);
+    html = html.replace("$IMAGE$", this._dataset.image);
+    html = html.replace("$DIFFICULTY$", this._dataset.difficulty);
+    html = html.replace("$MUSCLEGROUP$", this._dataset.muscleGroup);
+    html = html.replace("$DESCRIPTION$", this._dataset.description);
 
     this._mainElement.innerHTML = html;
   }

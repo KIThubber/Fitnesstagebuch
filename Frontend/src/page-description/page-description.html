@@ -1,19 +1,61 @@
 <!-- Stylesheet der Seite -->
 <style>
 
+    #name{
+        font-weight: bold;
+    }
 
+    #test{
+        background-color: red;
+        color: red;
+    }
 
 
 </style>
 
+
 <!-- Inhalt der Seite -->
     <main>
-        <!-- gesamte Box -->
-        <p> test</p>
-        <div class="boxForm">
+        <div class="des" data-id="$ID§">
+            <div class="info">
+                <div class="name">
+                    $NAME$
+                </div>
+                <div class="difficulty">
+                    $DIFFICULTY$
+                </div>
+                <div class="musclegroup">
+                    $MUSCLEGROUP$
+                </div>
+            </div>
+
+            <p>Beschreibung:</p>
+            <div class="description">
+                $DESCRIPTION$
+            </div>
+        </div>
+
+        <div class="test">
+            <p>hallo test test</p>
+        </div>
+
+
+        <!-- <div class="boxForm">
             <div class="boxOben">
                 <div class="boxTitel"> 
-                    <!-- js newInfo -->
+
+                    <div class="des" data-id="$ID§">
+                        <div class="name">
+                            $NAME$
+                        </div>
+                        <div class="difficulty">
+                            $DIFFICULTY$
+                        </div>
+                        <div class="musclegroup">
+                            $MUSCLEGROUP$
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="boxImage">
@@ -27,9 +69,15 @@
 
             <div class="boxDes"> 
                 <p> <b>Beschreibung: </b></p>
-                <!-- js newDescription -->
+
+                <div class="des" data-id="$ID§">
+                    <div class="description">
+                        $DESCRIPTION$
+                    </div>
+                </div>
+
             </div>
-        </div>
+        </div> -->
         
     </main>
     
