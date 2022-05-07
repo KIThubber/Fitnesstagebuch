@@ -65,14 +65,13 @@ body {
     justify-content: space-between;
   }
 
-  .icon nav{
+  .icon{
     margin-top: 12px;
     height: 1.7em;
-    /* padding: 7px; */
   }
   
   h1 {
-    font-size: 28pt;
+    font-size: 26pt;
     font-weight: bold;
   }
 
@@ -108,7 +107,6 @@ body {
       a:hover {
         color: black;
         text-decoration: none;
-        padding: 1em;
       }
       
       /* selected link */
@@ -139,11 +137,10 @@ body {
     padding: 1em;
   }
 
-  #app-menu nav a:hover {
-      background-color: #C8F8FF;
-      text-decoration: none;
+  nav li a:hover {
+      /* background-color: #C8F8FF; */
+      text-decoration: underline;
       display: block;
-      padding: 1em;
   }
 
 nav.non-interactive a:hover {
@@ -203,6 +200,9 @@ footer li {
   font-weight: bold;
 }
 
+footer a:hover {
+  text-decoration: underline;
+}
 
 
 /***

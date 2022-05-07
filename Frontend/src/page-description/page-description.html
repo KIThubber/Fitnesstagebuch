@@ -1,14 +1,45 @@
 <!-- Stylesheet der Seite -->
 <style>
 
-    #name{
-        font-weight: bold;
+    main{
+        background-color: white;
     }
 
-    #test{
-        background-color: red;
-        color: red;
+    .des{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "a b"
+        "c c"; 
     }
+
+    .info{
+        grid-area: a;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .name{
+        font-weight: bold;
+        font-size: 16pt;
+    }
+
+    .image{
+        grid-area:b;
+    }
+
+    .description{
+        margin-top: 2em;
+        grid-area:c;
+    }
+
+    button{
+        background-color: #C8F8FF;
+        border: none;
+        padding: 1em;
+        width: 100%;
+    }
+
 
 
 </style>
@@ -17,10 +48,12 @@
 <!-- Inhalt der Seite -->
     <main>
         <div class="des" data-id="$ID§">
+
             <div class="info">
                 <div class="name">
                     $NAME$
                 </div>
+                <p> </p>
                 <div class="difficulty">
                     $DIFFICULTY$
                 </div>
@@ -29,55 +62,22 @@
                 </div>
             </div>
 
-            <p>Beschreibung:</p>
+            <div class="image">
+                $IMAGE$
+            </div>
+
+            <!-- <p><b>Beschreibung:</b></p> -->
             <div class="description">
+                <p><b>Beschreibung:</b></p>
                 $DESCRIPTION$
             </div>
+
         </div>
 
-        <div class="test">
-            <p>hallo test test</p>
+        <div class="buttonWorkout">
+            <p></p>
+            <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Hinzufügen zu Workout</button>
         </div>
-
-
-        <!-- <div class="boxForm">
-            <div class="boxOben">
-                <div class="boxTitel"> 
-
-                    <div class="des" data-id="$ID§">
-                        <div class="name">
-                            $NAME$
-                        </div>
-                        <div class="difficulty">
-                            $DIFFICULTY$
-                        </div>
-                        <div class="musclegroup">
-                            $MUSCLEGROUP$
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="boxImage">
-                    <img src="test.jpeg" width="100%" alt="">
-                </div>
-
-                <div class="boxButton">
-                    <button onclick="window.location.href = 'https://www.google.de/?hl=de';">Hinzufügen zu Workout</button>
-                </div>
-            </div>
-
-            <div class="boxDes"> 
-                <p> <b>Beschreibung: </b></p>
-
-                <div class="des" data-id="$ID§">
-                    <div class="description">
-                        $DESCRIPTION$
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
         
     </main>
     
