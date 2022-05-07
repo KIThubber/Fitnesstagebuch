@@ -136,7 +136,7 @@ class App {
    */
   async _gotoDescription(id) {
     try {
-      console.log("test");
+     
 
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: PageDescription } = await import(
