@@ -92,10 +92,10 @@ export default class WorkoutOverview extends Page {
   //       );
   //     // Warum hier? Workout hinzufügen Jan
       liElement
-          .querySelector(".action.showExcercises")
+          .querySelector(".action.showWorkout")
           .addEventListener(
             "click",
-            () => (location.hash = `#/workoutExerciseOverview/${dataset._id}`)
+            () => (location.hash = `#/workoutOverview/${dataset._id}`)
           );
       // }
   }

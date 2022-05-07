@@ -39,7 +39,7 @@ class App {
         show: (matches) => -this._gotoDescription(matches[1]),
       },
       {
-        url: "^/workout/(.*)$",
+        url: "^/workout",
         show: (matches) => -this._gotoWorkout(matches[1]),
       },
       {
@@ -48,7 +48,7 @@ class App {
       },
       {
         url: "^/workoutExerciseOverview/(.*)$",
-        show: (matches) => -this._gotoworkoutExerciseOverview(matches[1]),
+        show: (matches) => -this._gotoWorkoutOverview(matches[1]),
       },
 
       
@@ -199,22 +199,6 @@ class App {
     }
   }
 
-  async _gotoworkoutExerciseOverview(id) {
-    try {
-      // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
-      let { default: PageWorkoutExercise } = await import(
-        "./page-workoutexercises/page-workoutexercises.js"
-      );
-
-      let page = new PageWorkoutExercise(this, id);
-      await page.init();
-      this._showPage(page, "workoutExerciseOverview");
-    } catch (ex) {
-      this.showException(ex);
-    }
-  }
-
-  
   //}
   /**
    * Interne Methode zum Umschalten der sichtbaren Seite.

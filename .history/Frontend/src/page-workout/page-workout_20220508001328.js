@@ -91,12 +91,12 @@ export default class WorkoutOverview extends Page {
       
   //       );
   //     // Warum hier? Workout hinzufügen Jan
-      liElement
-          .querySelector(".action.showExcercises")
-          .addEventListener(
-            "click",
-            () => (location.hash = `#/workoutExerciseOverview/${dataset._id}`)
-          );
+      // liElement
+      //     .querySelector(".action.showExercises")
+      //     .addEventListener(
+      //       "click",
+      //       () => (location.hash = `#/workoutOverview/${dataset._id}`)
+      //     );
       // }
   }
 

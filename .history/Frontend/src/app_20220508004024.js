@@ -208,7 +208,7 @@ class App {
 
       let page = new PageWorkoutExercise(this, id);
       await page.init();
-      this._showPage(page, "workoutExerciseOverview");
+      this._showPage(page, "workoutOverview");
     } catch (ex) {
       this.showException(ex);
     }

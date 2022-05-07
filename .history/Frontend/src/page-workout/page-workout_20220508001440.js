@@ -95,7 +95,7 @@ export default class WorkoutOverview extends Page {
           .querySelector(".action.showExcercises")
           .addEventListener(
             "click",
-            () => (location.hash = `#/workoutExerciseOverview/${dataset._id}`)
+            () => (location.hash = `#/workoutOverview/${dataset._id}`)
           );
       // }
   }
