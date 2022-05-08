@@ -22,7 +22,7 @@ class DatabaseFactory {
     await this.client.connect();
     this.database = this.client.db("adressbook");
 
-    //await this._createDemoData();
+    await this._createDemoData();
     await this._createDemoExercises();
     await this._createDemoWorkouts();
   }
