@@ -226,7 +226,11 @@ class App {
         "./page-workoutexercises/page-workoutexercises.js"
       );
 
-   
+      let answer = confirm(
+        id
+        //test.exercises[index]
+      );
+      if (!answer) return;
       let page = new PageWorkoutExercise(this, id);
       await page.init();
       this._showPage(page, "workoutExerciseOverview");

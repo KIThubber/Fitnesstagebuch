@@ -1,7 +1,7 @@
 "use strict";
 
 import Page from "../page.js";
-import HtmlTemplate from "./page-workoutexercises.html";
+import HtmlTemplate from "./page-workoutexercises";
 
 /**
  * Klasse PageList: Stellt die Listenübersicht zur Verfügung
@@ -11,17 +11,12 @@ export default class PageWorkoutExercise extends Page {
    * Konstruktor.
    *
    * @param {App} app Instanz der App-Klasse
-   * @param {workoutId} workoutId
+   * @param {Integer} workoutId
    */
-  constructor(app,workoutId) {
+  constructor(app) {
     super(app, HtmlTemplate);
 
-
-
-
-    this._workoutId = workoutId;
-    
-    
+    this._emptyMessageElement = null;
   }
 
   /**
@@ -41,22 +36,28 @@ export default class PageWorkoutExercise extends Page {
    */
   async init() {
     // HTML-Inhalt nachladen
+    await super.init();
+    this._title = "Übersicht";
+
+    this._url = `/workout/${this._workoutId}`;
+    
     
 
-    await super.init();
-
-    this._title = "Übersicht";
-    this._url = `/workout/${this._workoutId}`;
+    // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
     let data = await this._app.backend.fetch("GET", this._url);
 
+    let answer = confirm(
+        data
+        //test.exercises[index]
+      );
+      if (!answer) return;
 
-    
+    this._emptyMessageElement =
+      this._mainElement.querySelector(".empty-placeholder");
 
-
-
-   
-
-    
+    if (data.exercises.length) {
+      this._emptyMessageElement.classList.add("hidden");
+    }
 
     // Je Datensatz einen Listeneintrag generieren
     let olElement = this._mainElement.querySelector("ol");
@@ -67,12 +68,10 @@ export default class PageWorkoutExercise extends Page {
 
     for (let index in data.exercises) {
       // Platzhalter ersetzen
-      let dataset = data.exercises[index];
+      let dataset = data[index];
       let html = templateHtml;
 
-
-      
-
+      html = html.replace("$ID$", dataset._id);
       html = html.replace("$NAME$", dataset.name);
       html = html.replace("$IMAGE$", dataset.image);
       html = html.replace("$DIFFICULTY$", dataset.difficulty);
@@ -116,7 +115,7 @@ export default class PageWorkoutExercise extends Page {
    * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
    * die Adresse löschen will und löscht diese dann.
    *
-   * 
+   * @param {Integer} id ID des zu löschenden Datensatzes
    */
 //   async _askDelete(id) {
 //     // Sicherheitsfrage zeigen

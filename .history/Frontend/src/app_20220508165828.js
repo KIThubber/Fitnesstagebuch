@@ -226,7 +226,8 @@ class App {
         "./page-workoutexercises/page-workoutexercises.js"
       );
 
-   
+      
+      if (!answer) return;
       let page = new PageWorkoutExercise(this, id);
       await page.init();
       this._showPage(page, "workoutExerciseOverview");

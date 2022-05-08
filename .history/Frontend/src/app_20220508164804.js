@@ -219,22 +219,23 @@ class App {
   }
 
   async _gotoworkoutExerciseOverview(id) {
-    
+    let answer = confirm(
+      "data"
+      //test.exercises[index]
+    );
+    if (!answer) return;
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: PageWorkoutExercise } = await import(
         "./page-workoutexercises/page-workoutexercises.js"
       );
 
-   
       let page = new PageWorkoutExercise(this, id);
       await page.init();
       this._showPage(page, "workoutExerciseOverview");
     } catch (ex) {
       this.showException(ex);
     }
-    
-
   }
 
    

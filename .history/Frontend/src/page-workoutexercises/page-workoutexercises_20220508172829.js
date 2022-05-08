@@ -21,7 +21,7 @@ export default class PageWorkoutExercise extends Page {
 
     this._workoutId = workoutId;
     
-    
+    this._emptyMessageElement = null;
   }
 
   /**
@@ -52,27 +52,33 @@ export default class PageWorkoutExercise extends Page {
 
     
 
+    let answer = confirm(
+        data.exercises[1].name
+        //test.exercises[index]
+      );
+      if (!answer) return;
 
 
-   
+    this._emptyMessageElement =
+      this._mainElement.querySelector(".empty-placeholder");
 
-    
+    if (data.exercises.length) {
+      this._emptyMessageElement.classList.add("hidden");
+    }
 
     // Je Datensatz einen Listeneintrag generieren
     let olElement = this._mainElement.querySelector("ol");
 
     let templateElement = this._mainElement.querySelector(".list-entry");
-    let templateHtml = templateElement.outerHTML;
-    templateElement.remove();
+    // let templateHtml = templateElement.outerHTML;
+    // templateElement.remove();
 
     for (let index in data.exercises) {
       // Platzhalter ersetzen
-      let dataset = data.exercises[index];
+      let dataset = data[index];
       let html = templateHtml;
 
-
-      
-
+      html = html.replace("$ID$", dataset._id);
       html = html.replace("$NAME$", dataset.name);
       html = html.replace("$IMAGE$", dataset.image);
       html = html.replace("$DIFFICULTY$", dataset.difficulty);

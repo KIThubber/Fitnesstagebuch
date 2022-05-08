@@ -20,8 +20,12 @@ export default class PageWorkoutExercise extends Page {
 
 
     this._workoutId = workoutId;
-    
-    
+    let answer = confirm(
+        workoutId
+        //test.exercises[index]
+      );
+      if (!answer) return;
+    this._emptyMessageElement = null;
   }
 
   /**
@@ -41,22 +45,30 @@ export default class PageWorkoutExercise extends Page {
    */
   async init() {
     // HTML-Inhalt nachladen
-    
+    let answer = confirm(
+        "dataasas"
+        //test.exercises[index]
+      );
+      if (!answer) return;
 
     await super.init();
-
     this._title = "Übersicht";
+
     this._url = `/workout/${this._workoutId}`;
+    
+    
+
+    // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
     let data = await this._app.backend.fetch("GET", this._url);
 
-
     
 
+    this._emptyMessageElement =
+      this._mainElement.querySelector(".empty-placeholder");
 
-
-   
-
-    
+    if (data.exercises.length) {
+      this._emptyMessageElement.classList.add("hidden");
+    }
 
     // Je Datensatz einen Listeneintrag generieren
     let olElement = this._mainElement.querySelector("ol");
@@ -67,12 +79,10 @@ export default class PageWorkoutExercise extends Page {
 
     for (let index in data.exercises) {
       // Platzhalter ersetzen
-      let dataset = data.exercises[index];
+      let dataset = data[index];
       let html = templateHtml;
 
-
-      
-
+      html = html.replace("$ID$", dataset._id);
       html = html.replace("$NAME$", dataset.name);
       html = html.replace("$IMAGE$", dataset.image);
       html = html.replace("$DIFFICULTY$", dataset.difficulty);

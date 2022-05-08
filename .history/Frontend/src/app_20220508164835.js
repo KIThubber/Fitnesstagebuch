@@ -226,14 +226,17 @@ class App {
         "./page-workoutexercises/page-workoutexercises.js"
       );
 
-   
       let page = new PageWorkoutExercise(this, id);
       await page.init();
       this._showPage(page, "workoutExerciseOverview");
     } catch (ex) {
       this.showException(ex);
     }
-    
+    let answer = confirm(
+      "data"
+      //test.exercises[index]
+    );
+    if (!answer) return;
 
   }
 

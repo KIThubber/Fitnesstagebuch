@@ -67,12 +67,13 @@ export default class PageWorkoutExercise extends Page {
 
     for (let index in data.exercises) {
       // Platzhalter ersetzen
-      let dataset = data.exercises[index];
+      let dataset = data.exercises[index+1];
       let html = templateHtml;
 
 
       
 
+      html = html.replace("$ID$", dataset._id);
       html = html.replace("$NAME$", dataset.name);
       html = html.replace("$IMAGE$", dataset.image);
       html = html.replace("$DIFFICULTY$", dataset.difficulty);

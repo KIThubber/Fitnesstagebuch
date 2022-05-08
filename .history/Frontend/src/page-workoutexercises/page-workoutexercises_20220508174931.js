@@ -52,6 +52,11 @@ export default class PageWorkoutExercise extends Page {
 
     
 
+    let answer = confirm(
+        data.exercises[1].name
+        //test.exercises[index]
+      );
+      if (!answer) return;
 
 
    
@@ -67,12 +72,17 @@ export default class PageWorkoutExercise extends Page {
 
     for (let index in data.exercises) {
       // Platzhalter ersetzen
-      let dataset = data.exercises[index];
+      let dataset = data[index];
       let html = templateHtml;
 
 
-      
+      let answer = confirm(
+        dataset.exercise.name
+        //test.exercises[index]
+      );
+      if (!answer) return;
 
+      //html = html.replace("$ID$", dataset._id);
       html = html.replace("$NAME$", dataset.name);
       html = html.replace("$IMAGE$", dataset.image);
       html = html.replace("$DIFFICULTY$", dataset.difficulty);
