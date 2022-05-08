@@ -190,44 +190,7 @@ class DatabaseFactory {
    * Produktivanwendung natürlich nicht machen, aber so sehen wir
    * wenigstens gleich ein paar Daten.
    */
-  async _createDemoData() {
-    let addresses = this.database.collection("addresses");
-
-    if ((await addresses.estimatedDocumentCount()) === 0) {
-      addresses.insertMany([
-        {
-          first_name: "Willy",
-          last_name: "Tanner",
-          phone: "+49 711 564412",
-          email: "willy.tanner@alf.com",
-        },
-        {
-          first_name: "Michael",
-          last_name: "Knight",
-          phone: "+49 721 554194",
-          email: "michael@knight-rider.com",
-        },
-        {
-          first_name: "Fox",
-          last_name: "Mulder",
-          phone: "+49 721 553181",
-          email: "mulder@xfiles.com",
-        },
-        {
-          first_name: "Dana",
-          last_name: "Scully",
-          phone: "+49 721 572287",
-          email: "scully@xfiles.com",
-        },
-        {
-          first_name: "Elwood",
-          last_name: "Blues",
-          phone: "+49 721 957338",
-          email: "elwood@blues-brothers.com",
-        },
-      ]);
-    }
-  }
+  
 }
 
 export default new DatabaseFactory();
