@@ -51,7 +51,19 @@ Muskelgruppe sortiert werden.
 
 ![Startseite](startseite.png?raw=true)
 
+Zu einer Übung kann hier 
+* `Info`: Die Informationen angezeigt werden, leitet weiter auf excercise
+* `zu Workout hinzufügen`: Öffnet eine Maske in der man die bestehenden Workouts sieht, per Klick 
+    auf "hinzufügen" werden diese im Workout angezeigt
+* `Bearbeiten`: Öffnet eine Maske, wie in addExcercise
+* `Löschen`: Löscht die Übung aus der Datenbank
+
 Die Übungen werden dabei aus dem Backend über die page-edit ausgelesen und aufgespielt
+
+### Excercise
+Kompakte Infos zur Übung
+
+![Excercise](excercise.png?raw=true)
 
 ### Übung hinzufügen (new)
 
@@ -68,9 +80,10 @@ geschickt und kann künftig mit in ein Workout aufgenommen werden.
 ![addWorkout](addWorkout.png?raw=true)
 
 ### WorkoutOverview
-Übersicht über bereit angelegte Workouts
+Auf der Seite WorkoutOverview findet man eine Übersicht über die bereits angelegten Workouts.
 
 ![workoutOverview](workoutOverview.png?raw=true)
+
 Hier werden die Daten mittels der page-workoutExcercises eigelesen
 
 Starten der Seite
