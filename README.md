@@ -61,18 +61,20 @@ Zu einer Übung kann hier
 Die Übungen werden dabei aus dem Backend über die page-edit ausgelesen und aufgespielt
 
 ### Excercise
-Kompakte Infos zur Übung
+Kompakte Infos zur Übung und deren Durchführung.
+Hier gibt es zu jeder Übung eine Übersicht zur Muskelgruppe, der Schwierigkeit und einer 
+detailierten Beschreibung, zur Ausführung der Übung.
 
 ![Excercise](excercise.png?raw=true)
 
 ### Übung hinzufügen (new)
 
 Hier kann eine neue Übung angelegt werden
-- name (Name der Übung)
-- image (Link zu Bild)
-- difficulty (Schwierigkeitsgrad): Leicht, Mittel, Fortgeschritten
-- muscleGroup (Muskelgruppe): Beine, Arme, Brust, ...
-- Description (Beschreibung der Durchführung)
+* `name`: Name der Übung
+* `image`: Link zu Bild
+* `difficulty`: Schwierigkeitsgrad (Leicht, Mittel, Fortgeschritten)
+* `muscleGroup`: Muskelgruppe (Beine, Arme, Brust, ...)
+* `description`:Beschreibung der Durchführung
 
 Anschließend mit drücken des "Speichern"-Buttons wird die Übung an die Mongo-DB
 geschickt und kann künftig mit in ein Workout aufgenommen werden.
@@ -81,10 +83,15 @@ geschickt und kann künftig mit in ein Workout aufgenommen werden.
 
 ### WorkoutOverview
 Auf der Seite WorkoutOverview findet man eine Übersicht über die bereits angelegten Workouts.
+Per Klick auf `Zeige Exercises` gelangt man auf die Seite Workout.
 
 ![workoutOverview](workoutOverview.png?raw=true)
 
 Hier werden die Daten mittels der page-workoutExcercises eigelesen
+
+### Workout
+
+kommt noch
 
 Starten der Seite
 ------------------------
