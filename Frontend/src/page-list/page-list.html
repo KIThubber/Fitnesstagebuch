@@ -99,22 +99,34 @@
         grid-template-columns: 1fr 1fr 1fr;
       }
   }
+  button{
+      background-color: #C8F8FF;
+      border: none;
+      padding: 1em;
+      font-size: 12pt;
+  }
 </style>
-
-<script src="filterExcercise.js" type="module"></script>
 
 <!-- Inhalt der Seite -->
 <main>
     <div class="filter">
-        <li class="filter" data-id="$ID$">
-        <div class="musclegroup">
-            $MUSCLEGROUP$
+            <div class="filter">
+                <button class="all" >Alle Übungen</button>
+                <button class="arme" > Arme</button>
+                <button class="bauch" > Bauch</button>
+                <button class="beine" > Beine</button>
+                <button class="brust" > Brust</button>
+                <button class="rücken" > Rücken</button>
+                <button class="ausdauer" > Ausdauer</button>
+            </div>
         </div>
         </li>
+    
     </div>
 
+
     <ol>
-        <!-- Platzhalter für einfe leere Liste -->
+        <!-- Platzhalter für eine leere Liste -->
         <li class="empty-placeholder">
             <div class="name">
                 Keine Einträge vorhanden
@@ -153,9 +165,9 @@
                     <a>Löschen</a>
                 </div>
             </div>
-        </div>
+        
         </li>
- 
+    </div>
     </ol>
 </main>
 
