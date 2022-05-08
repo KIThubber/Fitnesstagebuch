@@ -18,26 +18,42 @@ dem Nutzer seine individuellen Workouts zusammenzustellen. Dafür kann der Nutze
 sich vorgefertigte Übungen zu seinem Workout hinzufügen, aber auch selbst Übungen
 anlegen.
 
+Single Page App
+
 Start mit Docker Compose
 ------------------------
 
--- Infos zu Backend --
+Zum starten der Anwendung muss zunächst ein Docker-Container erstellt werden
+
+```sh
+docker-compose -f docker-compose.dev.yml up
+```
 
 Überarbeitung Backend
 ------------------------
--- Infos zu Backend --
+Im Backend wurden folgende Änderungen durchgeführt
+Verwaltung von Excercises, Workouts und 
+
+### database.js
+In database.js sind die Vorlagen der Excercises und Workouts gespeichert
+
+### API
+
+### Controller
 
 Überarbeitung Frontend
 ------------------------
-## Übersichtsseite
 ### Übersichtsseite
 
-Hier sind alle bereitsangelegten Übungen
-Startseite des Fitnesstagebuchs
+Die Übersichtsseite ist die Startseite des Fitnesstagebuchs, hier können alle 
+bereits angelegten Übungen eingesehen werden. Zudem können die Übungen hier nach der 
+Muskelgruppe sortiert werden.
 
-![Screenshot 1](screenshot1.png?raw=true)
+![Startseite](startseite.png?raw=true)
 
-## Übung hinzufügen (new)
+Die Übungen werden dabei aus dem Backend über die page-edit ausgelesen und aufgespielt
+
+### Übung hinzufügen (new)
 
 Hier kann eine neue Übung angelegt werden
 - name (Name der Übung)
@@ -49,12 +65,18 @@ Hier kann eine neue Übung angelegt werden
 Anschließend mit drücken des "Speichern"-Buttons wird die Übung an die Mongo-DB
 geschickt und kann künftig mit in ein Workout aufgenommen werden.
 
-## WorkoutOverview
-Übersicht über Workouts
+![addWorkout](addWorkout.png?raw=true)
+
+### WorkoutOverview
+Übersicht über bereit angelegte Workouts
+
+![workoutOverview](workoutOverview.png?raw=true)
+Hier werden die Daten mittels der page-workoutExcercises eigelesen
 
 Starten der Seite
 ------------------------
-Einsehen der Webseite, nur lokal
+Einsehen der Webseite, nur lokal möglich, dafür geben Sie im Browser folgenden Link ein: 
 ```sh
 http://localhost:8080/#/
 ```
+Hier können dann die Übungen eingesehen werden.
