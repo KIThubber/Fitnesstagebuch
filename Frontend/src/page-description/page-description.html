@@ -11,7 +11,8 @@
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
         "a b"
-        "c c"; 
+        "c c"
+        "d d"; 
     }
 
     .info{
@@ -28,11 +29,17 @@
 
     .image{
         grid-area:b;
+        background-color: #F2F2F2;
+        height: 8em;
     }
 
     .description{
         margin-top: 2em;
         grid-area:c;
+    }
+
+    .action{
+        grid-area: d;
     }
 
     button{
@@ -57,40 +64,78 @@
         }
     }
 
+    /* AKTIONSBUTTONS */
+    main .actions {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: row;
+        /* justify-content: space-between; */
+    }
+
+    main .actions > div {
+        padding: 0.5em;
+        margin: 0.5em;
+
+        background-color: #C8F8FF;
+
+        flex: 1;
+        text-align: center;
+    }
+
+    main .actions > div:first-child {
+        margin-left: 0;
+    }
+
+    main .actions > div:last-child {
+        margin-right: 0;
+    }
+
+    main .actions > div:hover {
+        background-color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
 </style>
 
 <!-- Inhalt der Seite -->
     <main>
-        <div class="des" data-id="$ID§">
+            <div class="des" data-id="$ID§">
 
-            <div class="info">
-                <div class="name">
-                    $NAME$
+                <div class="info">
+                    <div class="name">
+                        $NAME$
+                    </div>
+                    <div class="difficulty">
+                        $DIFFICULTY$
+                    </div>
+                    <div class="musclegroup">
+                        $MUSCLEGROUP$
+                    </div>
                 </div>
-                <div class="difficulty">
-                    $DIFFICULTY$
+    
+                <div class="image">
+                    $IMAGE$
                 </div>
-                <div class="musclegroup">
-                    $MUSCLEGROUP$
+    
+                <div class="description">
+                    <p><b>Beschreibung:</b></p>
+                    $DESCRIPTION$
                 </div>
+    
+                <!-- <div class="actions">
+                    <div class="action addtothisWorkout">
+                        <a>zum Workout hinzufuegen</a>
+                    </div>
+                </div> -->
+                
             </div>
 
-            <div class="image">
-                $IMAGE$
-            </div>
-
-            <!-- <p><b>Beschreibung:</b></p> -->
-            <div class="description">
-                <p><b>Beschreibung:</b></p>
-                $DESCRIPTION$
-            </div>
-
-        </div>
-
-        <div class="buttonWorkout">
+    
+        <!-- <div class="buttonWorkout">
             <p></p>
             <button onclick="window.location.href = 'http://localhost:8080/#/workoutOverview/';">Hinzufügen zu Workout</button>
-        </div>
+        </div> -->
         
     </main>
     
