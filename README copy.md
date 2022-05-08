@@ -1,4 +1,4 @@
-Beispielanwendung „Adressbuch”
+Fittnesstagebuch
 ==============================
 
 Inhaltsverzeichnis
