@@ -35,6 +35,7 @@ export default class PageDescription extends Page {
    * Apps würde man ggf. eine Template Engine wie z.B. Nunjucks integrieren
    * und den JavaScript-Code dadurch deutlich vereinfachen.
    */
+
   async init() {
     // HTML-Inhalt nachladen
     await super.init();

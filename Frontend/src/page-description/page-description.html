@@ -11,8 +11,7 @@
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
         "a b"
-        "c c"
-        "d d"; 
+        "c c"; 
     }
 
     .info{
@@ -38,18 +37,6 @@
         grid-area:c;
     }
 
-    .action{
-        grid-area: d;
-    }
-
-    button{
-        background-color: #C8F8FF;
-        border: none;
-        padding: 1em;
-        width: 100%;
-        font-size: 12pt;
-    }
-
     @media (min-width: 900px) {
     /*iPad*/
         main {
@@ -63,39 +50,6 @@
             font-size: 18;
         }
     }
-
-    /* AKTIONSBUTTONS */
-    main .actions {
-        padding-top: 10px;
-        display: flex;
-        flex-direction: row;
-        /* justify-content: space-between; */
-    }
-
-    main .actions > div {
-        padding: 0.5em;
-        margin: 0.5em;
-
-        background-color: #C8F8FF;
-
-        flex: 1;
-        text-align: center;
-    }
-
-    main .actions > div:first-child {
-        margin-left: 0;
-    }
-
-    main .actions > div:last-child {
-        margin-right: 0;
-    }
-
-    main .actions > div:hover {
-        background-color: white;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
 </style>
 
 <!-- Inhalt der Seite -->
@@ -121,22 +75,9 @@
                 <div class="description">
                     <p><b>Beschreibung:</b></p>
                     $DESCRIPTION$
+                    <p><a href="#">zurück zur Übersicht </a>    </p>
                 </div>
-    
-                <!-- <div class="actions">
-                    <div class="action addtothisWorkout">
-                        <a>zum Workout hinzufuegen</a>
-                    </div>
-                </div> -->
-                
-            </div>
-
-    
-        <!-- <div class="buttonWorkout">
-            <p></p>
-            <button onclick="window.location.href = 'http://localhost:8080/#/workoutOverview/';">Hinzufügen zu Workout</button>
-        </div> -->
-        
+            </div>        
     </main>
     
     
