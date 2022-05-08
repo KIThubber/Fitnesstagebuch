@@ -23,6 +23,8 @@ speichern zu können.
 Bei dem Fitnesstagebuch handelt es sich um eine Single Page App, welche den Inhalt
 dynamisch anpassen kann. Hierzu haben wir page-edit JavaSript Dateien verwendet,
 welche den Inhalt der Main Methode anpassen können.
+Filterfunktion und Löschfunktion funktionieren leider nur separiert, nicht aber wenn man beides implementiert.
+(FYI: Z00481XT=LeonDebatin=KIThubber)
 
 Start mit Docker Compose
 ------------------------
