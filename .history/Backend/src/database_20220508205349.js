@@ -100,11 +100,11 @@ class DatabaseFactory {
           description: "<p>1. Stellen Sie Ihre Beine schulterbreit auf die Plattform.</p><p>2. Lassen Sie das Gewicht los und strecken Sie Ihre Beine vollständig aus, ohne Ihre Knie zu sperren.</p><p>3. Senken Sie das Gewicht ab, bis sich Ihre Beine in einem 90°-Winkel befinden (aber lassen Sie NICHT zu, dass sich Ihr Gesäß und Ihr unterer Rücken vom Polster abheben. Dadurch wird Ihr unterer Rücken in eine runde Position gebracht, was sehr gefährlich ist.)</p><p>4. Drücken Sie das Gewicht zurück in die Ausgangsposition.</p>",
         },
         {
-            name: "Bizepscurls",
+            name: "BBizepscurls",
             image: "Musterbild",
             difficulty: "Leicht",
             muscleGroup: "Arme",
-            description: "<p>1. Stellen Sie Ihre Beine schulterbreit auf die Plattform und curlen sie was das Zeug hält.<p>",
+            description: "<p>1. Stellen Sie Ihre Beine schulterbreit auf die Plattform und curlen sie was das Zeug hält.</p>
           },
       ]);
     }
