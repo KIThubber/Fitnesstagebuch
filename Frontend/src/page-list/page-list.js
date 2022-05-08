@@ -36,6 +36,7 @@ export default class PageList extends Page {
   async init() {
     // HTML-Inhalt nachladen
     await super.init();
+
     this._title = "Übersicht";
 
     // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
@@ -54,56 +55,126 @@ export default class PageList extends Page {
     let templateHtml = templateElement.outerHTML;
     templateElement.remove();
 
-    for (let index in data) {
-      // Platzhalter ersetzen
-      let dataset = data[index];
-      let html = templateHtml;
+    //Übungen aufrufen + Filter
+    function initHtmlElements(filter) {
+      olElement.innerHTML = "";
+      if (filter != null) {
+        for (let index in data) {
+          // Platzhalter ersetzen
+          let dataset = data[index];
+          let html = templateHtml;
 
-      html = html.replace("$ID$", dataset._id);
-      html = html.replace("$NAME$", dataset.name);
-      html = html.replace("$IMAGE$", dataset.image);
-      html = html.replace("$DIFFICULTY$", dataset.difficulty);
-      html = html.replace("$MUSCLEGROUP$", dataset.muscleGroup);
-      html = html.replace("$DESCRIPTION$", dataset.description);
+          if (dataset.muscleGroup.toLowerCase() == filter) {
+            html = html.replace("$ID$", dataset._id);
+            html = html.replace("$NAME$", dataset.name);
+            html = html.replace("$IMAGE$", dataset.image);
+            html = html.replace("$DIFFICULTY$", dataset.difficulty);
+            html = html.replace("$MUSCLEGROUP$", dataset.muscleGroup);
+            html = html.replace("$DESCRIPTION$", dataset.description);
 
-      // Element in die Liste einfügen
-      let dummyElement = document.createElement("div");
-      dummyElement.innerHTML = html;
-      let liElement = dummyElement.firstElementChild;
-      liElement.remove();
-      olElement.appendChild(liElement);
+            // Element in die Liste einfügen
+            let dummyElement = document.createElement("div");
+            dummyElement.innerHTML = html;
+            let liElement = dummyElement.firstElementChild;
+            liElement.remove();
+            olElement.appendChild(liElement);
 
-      // Event Handler registrieren
-      liElement
-        .querySelector(".action.edit")
-        .addEventListener(
-          "click",
-          () => (location.hash = `#/edit/${dataset._id}`)
-        );
-      liElement
-        .querySelector(".action.delete")
-        .addEventListener("click", () => this._askDelete(dataset._id));
+            // Event Handler registrieren
+            liElement
+              .querySelector(".action.edit")
+              .addEventListener(
+                "click",
+                () => (location.hash = `#/edit/${dataset._id}`)
+              );
+            liElement
+              .querySelector(".action.delete")
+              .addEventListener("click", () => this._askDelete(dataset._id));
 
-      liElement
-        .querySelector(".action.description")
-        .addEventListener(
-          "click",
-          () => (location.hash = `#/description/${dataset._id}`)
-        );
-      liElement
-        .querySelector(".action.addToWorkout")
-        .addEventListener(
-          "click",
-          () => (location.hash = `#/workout/${dataset._id}`)
-        );
-        // Für WorkoutExcercises
-        // liElement
-        // .querySelector(".action.showExcercises")
-        // .addEventListener(
-        //   "click",
-        //   () => (location.hash = `#/showExcercises/${dataset._id}`)
-        // );
+            liElement
+              .querySelector(".action.description")
+              .addEventListener(
+                "click",
+                () => (location.hash = `#/description/${dataset._id}`)
+              );
+            liElement
+              .querySelector(".action.addToWorkout")
+              .addEventListener(
+                "click",
+                () => (location.hash = `#/workout/${dataset._id}`)
+              );
+          }
+        }
+      } else {
+        for (let index in data) {
+          // Platzhalter ersetzen
+          let dataset = data[index];
+          let html = templateHtml;
+
+          html = html.replace("$ID$", dataset._id);
+          html = html.replace("$NAME$", dataset.name);
+          html = html.replace("$IMAGE$", dataset.image);
+          html = html.replace("$DIFFICULTY$", dataset.difficulty);
+          html = html.replace("$MUSCLEGROUP$", dataset.muscleGroup);
+          html = html.replace("$DESCRIPTION$", dataset.description);
+
+          // Element in die Liste einfügen
+          let dummyElement = document.createElement("div");
+          dummyElement.innerHTML = html;
+          let liElement = dummyElement.firstElementChild;
+          liElement.remove();
+          olElement.appendChild(liElement);
+
+          // Event Handler registrieren
+          liElement
+            .querySelector(".action.edit")
+            .addEventListener(
+              "click",
+              () => (location.hash = `#/edit/${dataset._id}`)
+            );
+          liElement
+            .querySelector(".action.delete")
+            .addEventListener("click", () => this._askDelete(dataset._id));
+
+          liElement
+            .querySelector(".action.description")
+            .addEventListener(
+              "click",
+              () => (location.hash = `#/description/${dataset._id}`)
+            );
+          liElement
+            .querySelector(".action.addToWorkout")
+            .addEventListener(
+              "click",
+              () => (location.hash = `#/workout/${dataset._id}`)
+            );
+        }
+      }
     }
+
+    //start
+    initHtmlElements();
+
+    //filter
+    const all = this._mainElement.querySelector(".all");
+    all.addEventListener("click", () => initHtmlElements());
+
+    const arme = this._mainElement.querySelector(".arme");
+    arme.addEventListener("click", () => initHtmlElements("arme"));
+
+    const beine = this._mainElement.querySelector(".beine");
+    beine.addEventListener("click", () => initHtmlElements("beine"));
+
+    const bauch = this._mainElement.querySelector(".bauch");
+    bauch.addEventListener("click", () => initHtmlElements("bauch"));
+
+    const brust = this._mainElement.querySelector(".brust");
+    brust.addEventListener("click", () => initHtmlElements("brust"));
+
+    const rücken = this._mainElement.querySelector(".rücken");
+    rücken.addEventListener("click", () => initHtmlElements("rücken"));
+
+    const ausdauer = this._mainElement.querySelector(".ausdauer");
+    ausdauer.addEventListener("click", () => initHtmlElements("ausdauer"));
   }
 
   /**
@@ -138,3 +209,13 @@ export default class PageList extends Page {
     }
   }
 }
+
+//filter
+// var filterA = document.querySelector(".filter.filterA");
+// console.log(filterA);
+
+// console.log("dsfsdfsdf");
+// filterA[1].addEventListener("click", filterSelectionAll());
+// function filterSelectionAll() {
+//   console.log("test");
+// }
