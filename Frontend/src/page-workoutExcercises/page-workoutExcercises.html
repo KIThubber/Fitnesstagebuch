@@ -1,0 +1,161 @@
+<style>
+    
+    main {
+        background-color: #F2F2F2;
+        margin: 0;
+        padding: 2em;
+    
+        display: flex;
+        flex-direction: column;
+      }
+      main ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border:20px #F2F2F2;
+        }
+    
+    /* Code aus "Astructio Retis AG"-Aufgabe - in jasmina css einfügen
+    v
+    */
+    main .list-entry {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      padding: 1rem;
+      background: white;
+      border-radius: 0.5em;
+    }
+    
+    
+    main .list-entry .card {
+      border: 1px solid lightgrey;
+      background: white;
+      border-radius: 0.5em;
+      overflow: hidden;
+    }
+    
+    main .list-entry .card img {
+      display: block;
+      width: 100%;
+      height: 50%;
+      }
+    
+      main .list-entry .card .card-body {
+      padding: 1rem;
+    }
+    
+    main .list-entry .card h4,
+    main .list-entry .card h5 {
+      margin: 0;
+    }
+    
+    main .list-entry .card h5 {
+      color: grey;
+    }
+    
+    main .list-entry .card a,
+    main .list-entry .card a:visited {
+      color: var(--color-secondary);
+    }
+    
+    main .list-entry .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+    
+    @media (min-width: 50em) {
+       main .list-entry .card-container {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+    
+      main .list-entry .card {
+          flex: 1;
+          min-width: 25em;
+      }
+    }
+        /* LISTENEINTRÄGE */
+        main{
+            margin: 1em;
+        }
+        main ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border:20px #F2F2F2;
+        }
+    
+        main li {
+            margin: 1em;
+            padding: 1em;
+            
+            background-color: white;
+            border-radius: 20px 20px 20px 20px;
+        }
+    
+        main li:hover {
+            background-color: #C8F8FF;
+        }
+    
+        main .name {
+            font-size: 150%;
+            font-weight: bold;
+        }
+        main .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        main .actions > div {
+            padding: 0.5em;
+            margin: 0.5em;
+            background-color: #C8F8FF;
+            flex: 1;
+            text-align: center;
+        }
+    
+        main .actions > div:first-child {
+            margin-left: 0;
+        }
+    
+        main .actions > div:last-child {
+            margin-right: 0;
+        }
+    
+        main .actions > div:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+    <main>
+        <!-- <ol> -->
+            <ol>
+                
+                    <!-- Platzhalter für eine leere Liste -->
+                    <li class="empty-placeholder">
+                        <div class="name">
+                            Keine Einträge vorhanden
+                        </div>
+                    </li>
+            
+                    <!-- Vorlage für einen Eintrag in der Liste -->
+                    <section class="section-news">
+                        <div class="card">
+                            <li class="list-entry" data-id="$ID$">
+                                <div class="name">
+                                    $NAME$
+                                    <p>Description 1</p>
+                                </div>
+                                <div class="actions">
+                                    <div class="action showExcercises">
+                                        <a>Zeige Details</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </div> 
+                </section>  
+            </ol>
+    </main>

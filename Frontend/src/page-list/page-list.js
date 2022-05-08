@@ -96,6 +96,13 @@ export default class PageList extends Page {
           "click",
           () => (location.hash = `#/workout/${dataset._id}`)
         );
+        // Für WorkoutExcercises
+        // liElement
+        // .querySelector(".action.showExcercises")
+        // .addEventListener(
+        //   "click",
+        //   () => (location.hash = `#/showExcercises/${dataset._id}`)
+        // );
     }
   }
 
