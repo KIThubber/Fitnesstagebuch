@@ -134,7 +134,6 @@ export default class PageList extends Page {
           liElement
             .querySelector(".action.delete")
             .addEventListener("click", () => this._askDelete(dataset._id));
-
           liElement
             .querySelector(".action.description")
             .addEventListener(
