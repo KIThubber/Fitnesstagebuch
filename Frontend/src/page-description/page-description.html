@@ -28,19 +28,13 @@
 
     .image{
         grid-area:b;
+        background-color: #F2F2F2;
+        height: 8em;
     }
 
     .description{
         margin-top: 2em;
         grid-area:c;
-    }
-
-    button{
-        background-color: #C8F8FF;
-        border: none;
-        padding: 1em;
-        width: 100%;
-        font-size: 12pt;
     }
 
     @media (min-width: 900px) {
@@ -56,42 +50,34 @@
             font-size: 18;
         }
     }
-
 </style>
 
 <!-- Inhalt der Seite -->
     <main>
-        <div class="des" data-id="$ID§">
+            <div class="des" data-id="$ID§">
 
-            <div class="info">
-                <div class="name">
-                    $NAME$
+                <div class="info">
+                    <div class="name">
+                        $NAME$
+                    </div>
+                    <div class="difficulty">
+                        $DIFFICULTY$
+                    </div>
+                    <div class="musclegroup">
+                        $MUSCLEGROUP$
+                    </div>
                 </div>
-                <div class="difficulty">
-                    $DIFFICULTY$
+    
+                <div class="image">
+                    $IMAGE$
                 </div>
-                <div class="musclegroup">
-                    $MUSCLEGROUP$
+    
+                <div class="description">
+                    <p><b>Beschreibung:</b></p>
+                    $DESCRIPTION$
+                    <p><a href="#">zurück zur Übersicht </a>    </p>
                 </div>
-            </div>
-
-            <div class="image">
-                $IMAGE$
-            </div>
-
-            <!-- <p><b>Beschreibung:</b></p> -->
-            <div class="description">
-                <p><b>Beschreibung:</b></p>
-                $DESCRIPTION$
-            </div>
-
-        </div>
-
-        <div class="buttonWorkout">
-            <p></p>
-            <button onclick="window.location.href = 'http://localhost:8080/#/workoutOverview/';">Hinzufügen zu Workout</button>
-        </div>
-        
+            </div>        
     </main>
     
     
