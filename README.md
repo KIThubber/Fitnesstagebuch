@@ -29,7 +29,20 @@ Start mit Docker Compose
 
 Überarbeitung Frontend
 ------------------------
--- Infos zu Frontend --
+#Übersichtsseite
+
+Hier sind alle bereitsangelegten Übungen
+Startseite des Fitnesstagebuchs
+
+![Screenshot 1](screenshot1.png?raw=true)
+
+#Übung hinzufügen (new)
+
+Hier kann eine neue Übung angelegt werden
+
+
+#WorkoutOverview
+Übersicht über Workouts
 
 Starten der Seite
 ------------------------
