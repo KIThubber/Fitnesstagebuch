@@ -29,14 +29,15 @@ Start mit Docker Compose
 
 Überarbeitung Frontend
 ------------------------
-# Übersichtsseite
+## Übersichtsseite
+### Übersichtsseite
 
 Hier sind alle bereitsangelegten Übungen
 Startseite des Fitnesstagebuchs
 
 ![Screenshot 1](screenshot1.png?raw=true)
 
-# Übung hinzufügen (new)
+## Übung hinzufügen (new)
 
 Hier kann eine neue Übung angelegt werden
 - name (Name der Übung)
@@ -48,7 +49,7 @@ Hier kann eine neue Übung angelegt werden
 Anschließend mit drücken des "Speichern"-Buttons wird die Übung an die Mongo-DB
 geschickt und kann künftig mit in ein Workout aufgenommen werden.
 
-# WorkoutOverview
+## WorkoutOverview
 Übersicht über Workouts
 
 Starten der Seite
