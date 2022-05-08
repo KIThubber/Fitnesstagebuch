@@ -104,4 +104,3 @@ Einsehen der Webseite, nur lokal möglich, dafür geben Sie im Browser folgenden
 ```sh
 http://localhost:8080/#/
 ```
-Hier können dann die Übungen eingesehen werden.
