@@ -13,15 +13,10 @@ export default class PageWorkoutExercise extends Page {
    * @param {App} app Instanz der App-Klasse
    * @param {workoutId} workoutId
    */
-  constructor(app,workoutId) {
+  constructor(app, workoutId) {
     super(app, HtmlTemplate);
 
-
-
-
     this._workoutId = workoutId;
-    
-    
   }
 
   /**
@@ -41,22 +36,12 @@ export default class PageWorkoutExercise extends Page {
    */
   async init() {
     // HTML-Inhalt nachladen
-    
 
     await super.init();
 
     this._title = "Übersicht";
     this._url = `/workout/${this._workoutId}`;
     let data = await this._app.backend.fetch("GET", this._url);
-
-
-    
-
-
-
-   
-
-    
 
     // Je Datensatz einen Listeneintrag generieren
     let olElement = this._mainElement.querySelector("ol");
@@ -70,9 +55,6 @@ export default class PageWorkoutExercise extends Page {
       let dataset = data.exercises[index];
       let html = templateHtml;
 
-
-      
-
       html = html.replace("$NAME$", dataset.name);
       html = html.replace("$IMAGE$", dataset.image);
       html = html.replace("$DIFFICULTY$", dataset.difficulty);
@@ -85,62 +67,6 @@ export default class PageWorkoutExercise extends Page {
       let liElement = dummyElement.firstElementChild;
       liElement.remove();
       olElement.appendChild(liElement);
-
-      // Event Handler registrieren
-    //   liElement
-    //     .querySelector(".action.edit")
-    //     .addEventListener(
-    //       "click",
-    //       () => (location.hash = `#/edit/${dataset._id}`)
-    //     );
-    //   liElement
-    //     .querySelector(".action.delete")
-    //     .addEventListener("click", () => this._askDelete(dataset._id));
-
-    //   liElement
-    //     .querySelector(".action.description")
-    //     .addEventListener(
-    //       "click",
-    //       () => (location.hash = `#/description/${dataset._id}`)
-    //     );
-    //   liElement
-    //     .querySelector(".action.addToWorkout")
-    //     .addEventListener(
-    //       "click",
-    //       () => (location.hash = `#/workout/${dataset._id}`)
-    //     );
     }
   }
-
-  /**
-   * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-   * die Adresse löschen will und löscht diese dann.
-   *
-   * 
-   */
-//   async _askDelete(id) {
-//     // Sicherheitsfrage zeigen
-
-//     let answer = confirm(
-//       "Soll die ausgewählte Übung wirklich gelöscht werden?"
-//     );
-//     if (!answer) return;
-
-//     // Datensatz löschen
-//     try {
-//       this._app.backend.fetch("DELETE", `/exercise/${id}`);
-//     } catch (ex) {
-//       this._app.showException(ex);
-//       return;
-//     }
-
-//     // HTML-Element entfernen
-//     this._mainElement.querySelector(`[data-id="${id}"]`)?.remove();
-
-//     if (this._mainElement.querySelector("[data-id]")) {
-//       this._emptyMessageElement.classList.add("hidden");
-//     } else {
-//       this._emptyMessageElement.classList.remove("hidden");
-//     }
-//   }
 }
