@@ -163,7 +163,12 @@ class App {
 
   async _gotoWorkoutSelection(id) {
 
-   
+    let answer = confirm(
+      id
+      //test.exercises[index]
+    );
+    if (!answer) return;
+
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: WorkoutOverviewhinzufuegen } = await import("./Workoutmanagement/page-workouthinzufuegen.js");

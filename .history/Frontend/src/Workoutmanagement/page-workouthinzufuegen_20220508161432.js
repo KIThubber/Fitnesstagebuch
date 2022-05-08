@@ -95,6 +95,32 @@ export default class WorkoutOverviewhinzufuegen extends Page {
       olElement.appendChild(liElement);
 
 
+    
+  //     // Event Handler registrieren
+  //     liElement
+  //       .querySelector(".action.edit")
+  //       .addEventListener(
+  //         "click",
+  //         () => (location.hash = `#/edit/${dataset._id}`)
+  //       );
+  //     liElement
+  //       .querySelector(".action.delete")
+  //       .addEventListener("click", () => this._askDelete(dataset._id));
+
+  //     liElement
+  //       .querySelector(".action.description")
+  //       .addEventListener(
+  //         "click",
+  //         () => (location.hash = `#/description/${dataset._id}`)         
+      
+  //       );
+  //     // Warum hier? Workout hinzufügen Jan
+
+
+
+
+
+
 
       liElement
           .querySelector(".action.addtothisWorkout")
@@ -126,7 +152,9 @@ export default class WorkoutOverviewhinzufuegen extends Page {
                   }
                   location.hash = "#/";
                 }
- 
+                  
+                
+            //(location.hash = `^/Addition/${this.dataset._id}`)
           );
     //   }
 

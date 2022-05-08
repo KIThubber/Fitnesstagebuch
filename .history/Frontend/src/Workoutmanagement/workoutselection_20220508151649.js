@@ -37,7 +37,11 @@ async init() {
     
     await super.init();
     
-    
+    let answer = confirm(
+        "swaglord"
+        //test.exercises[index]
+      );
+      if (!answer) return;
 
     // Datensatz laden
     
@@ -45,19 +49,26 @@ async init() {
     this._dataset = await this._app.backend.fetch("GET", this._url);
     //this._title = `${this._dataset.name} ${this._dataset.image}`;
    
-
+    
 
     let { default: WorkoutOverviewhinzufuegen } = await import(
         "./page-workouthinzufuegen.js"
       );
 
-    let page = new WorkoutOverviewhinzufuegen(this._app);
+    let page = new WorkoutOverviewhinzufuegen(this._app,this._dataset);
 
   
 
     await page.init();
 
-    
+    // liElement
+    // .querySelector(".action.addToWorkout")
+    // .addEventListener(
+    //     "click",
+    //     () => (location.hash = `#/workout`)
+    );
+        
+         
 
 
     //   let { default: WorkoutAddition } = await import(

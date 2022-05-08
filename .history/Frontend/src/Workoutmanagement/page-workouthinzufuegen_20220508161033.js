@@ -16,7 +16,7 @@ export default class WorkoutOverviewhinzufuegen extends Page {
    */
   constructor(app, exercise) {
     super(app, HtmlTemplate);
-
+    exercise = exercise;
     this._exercise = exercise;
     this._emptyMessageElement = null;
   }
@@ -95,6 +95,32 @@ export default class WorkoutOverviewhinzufuegen extends Page {
       olElement.appendChild(liElement);
 
 
+    
+  //     // Event Handler registrieren
+  //     liElement
+  //       .querySelector(".action.edit")
+  //       .addEventListener(
+  //         "click",
+  //         () => (location.hash = `#/edit/${dataset._id}`)
+  //       );
+  //     liElement
+  //       .querySelector(".action.delete")
+  //       .addEventListener("click", () => this._askDelete(dataset._id));
+
+  //     liElement
+  //       .querySelector(".action.description")
+  //       .addEventListener(
+  //         "click",
+  //         () => (location.hash = `#/description/${dataset._id}`)         
+      
+  //       );
+  //     // Warum hier? Workout hinzufügen Jan
+
+
+
+
+
+
 
       liElement
           .querySelector(".action.addtothisWorkout")
@@ -106,7 +132,19 @@ export default class WorkoutOverviewhinzufuegen extends Page {
                
                     
                 let exercisedata = await this._app.backend.fetch("GET", `/exercise/${this._exercise}`);
-                                
+                
+
+                //dataset.exercises.push()
+
+                // for (let index in data) {
+                
+                //}
+                let answer = confirm(
+                    
+                    this._exercise
+                  );
+                  if (!answer) return;
+                
                 dataset.exercises.push(exercisedata)
                 
                 
@@ -126,7 +164,9 @@ export default class WorkoutOverviewhinzufuegen extends Page {
                   }
                   location.hash = "#/";
                 }
- 
+                  
+                
+            //(location.hash = `^/Addition/${this.dataset._id}`)
           );
     //   }
 

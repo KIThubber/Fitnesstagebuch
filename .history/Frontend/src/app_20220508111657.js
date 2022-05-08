@@ -38,12 +38,18 @@ class App {
         url: "^/description/(.*)$",
         show: (matches) => -this._gotoDescription(matches[1]),
       },
-      
+      {
+        url: "^/workout",
+        show: () => -this._gotoWorkoutSelection(),
+      },
       {
         url: "^/workout/(.*)$",
-        show: (matches) => -this._gotoWorkoutSelection(matches[1]),
+        show: (matches) => -this._gotoWorkout(matches[1]),
       },
-      
+      {
+        url: "^/Addition/(.*)$",
+        show: (matches) => -this._addtoWorkout(matches[1]),
+      },
       {
         url: "^/workoutOverview/(.*)$",
         show: (matches) => -this._gotoWorkoutOverview(matches[1]),
@@ -161,14 +167,12 @@ class App {
     }
   }
 
-  async _gotoWorkoutSelection(id) {
-
-   
+  async _gotoWorkoutSelection() {
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: WorkoutOverviewhinzufuegen } = await import("./Workoutmanagement/page-workouthinzufuegen.js");
-      
-      let page = new WorkoutOverviewhinzufuegen(this,id);
+
+      let page = new WorkoutOverviewhinzufuegen(this);
       await page.init();
       this._showPage(page, "workout");
     } catch (ex) {
@@ -182,7 +186,6 @@ class App {
    * @param {Number} id ID der zu bearbeitenden Adresse
    */
   async _gotoWorkout(id) {
-    
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: WorkoutSelection } = await import(
@@ -233,7 +236,21 @@ class App {
     }
   }
 
-   
+  async _addtoWorkout(id) {
+    try {
+      // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
+      let { default: PageWorkoutExercise } = await import(
+        "./Workoutmanagement/page-workouthinzufuegen.js"
+      );
+
+      let page = new PageWorkoutExercise(this, id);
+      await page.init();
+      this._showPage(page, "Addition");
+    } catch (ex) {
+      this.showException(ex);
+    }
+  }
+  
   //}
   /**
    * Interne Methode zum Umschalten der sichtbaren Seite.

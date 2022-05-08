@@ -14,10 +14,10 @@ export default class WorkoutOverviewhinzufuegen extends Page {
    * @param {App} app Instanz der App-Klasse
    * 
    */
-  constructor(app, exercise) {
+  constructor(app, dataset) {
     super(app, HtmlTemplate);
 
-    this._exercise = exercise;
+    this._exercise = dataset;
     this._emptyMessageElement = null;
   }
   
@@ -36,7 +36,40 @@ export default class WorkoutOverviewhinzufuegen extends Page {
    * Apps würde man ggf. eine Template Engine wie z.B. Nunjucks integrieren
    * und den JavaScript-Code dadurch deutlich vereinfachen.
    */
+   async saveExerciseinWorkout(){     
+    let test = await this._app.backend.fetch("GET", `/workout/${dataset._id}`);
+    this._exercise;
 
+    //dataset.exercises.push()
+
+    // for (let index in data) {
+    
+    //}
+    dataset.exercises.push({
+        name: "Kreuzheben2",
+        image: "Musterbild",
+        difficulty: "schwer",
+        muscleGroup: "Rücken",
+        description: "Ziehe eine Langhantel.",
+      },)
+    
+    
+      try {
+        if (dataset) {
+          await this._app.backend.fetch("PUT", `/workout/${dataset._id}`, {
+            body: dataset,
+          });
+        } else {
+          await this._app.backend.fetch("POST", `/workout/${dataset._id}`, {
+            body: dataset,
+          });
+        }
+      } catch (ex) {
+        this._app.showException(ex);
+        return;
+      }
+
+}
 
    async init() {
     // HTML-Inhalt nachladen
@@ -53,7 +86,7 @@ export default class WorkoutOverviewhinzufuegen extends Page {
     // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
     // let data = await this._app.backend.fetch("GET", "/workoutOverview");
     let data = await this._app.backend.fetch("GET", "/workout");
-    //let exercise = await this._app.backend.fetch("GET", "/workout/");
+
     
    
 
@@ -95,39 +128,47 @@ export default class WorkoutOverviewhinzufuegen extends Page {
       olElement.appendChild(liElement);
 
 
+    
+  //     // Event Handler registrieren
+  //     liElement
+  //       .querySelector(".action.edit")
+  //       .addEventListener(
+  //         "click",
+  //         () => (location.hash = `#/edit/${dataset._id}`)
+  //       );
+  //     liElement
+  //       .querySelector(".action.delete")
+  //       .addEventListener("click", () => this._askDelete(dataset._id));
+
+  //     liElement
+  //       .querySelector(".action.description")
+  //       .addEventListener(
+  //         "click",
+  //         () => (location.hash = `#/description/${dataset._id}`)         
+      
+  //       );
+  //     // Warum hier? Workout hinzufügen Jan
+
+
+
+
+
+
 
       liElement
           .querySelector(".action.addtothisWorkout")
           .addEventListener(
               
-            "click",                            
-                async () =>  {
-
-               
-                    
-                let exercisedata = await this._app.backend.fetch("GET", `/exercise/${this._exercise}`);
-                                
-                dataset.exercises.push(exercisedata)
+            "click", saveExerciseinWorkout()                           
                 
+            );
                 
-                  try {
-                    if (dataset) {
-                      await this._app.backend.fetch("PUT", `/workout/${dataset._id}`, {
-                        body: dataset,
-                      });
-                    } else {
-                      await this._app.backend.fetch("POST", `/workout/${dataset._id}`, {
-                        body: dataset,
-                      });
-                    }
-                  } catch (ex) {
-                    this._app.showException(ex);
-                    return;
-                  }
-                  location.hash = "#/";
-                }
- 
-          );
+        
+    
+                  
+                
+            //(location.hash = `^/Addition/${this.dataset._id}`)
+          
     //   }
 
 

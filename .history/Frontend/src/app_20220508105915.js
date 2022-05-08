@@ -38,12 +38,14 @@ class App {
         url: "^/description/(.*)$",
         show: (matches) => -this._gotoDescription(matches[1]),
       },
-      
+      {
+        url: "^/workout",
+        show: () => -this._gotoWorkout(),
+      },
       {
         url: "^/workout/(.*)$",
-        show: (matches) => -this._gotoWorkoutSelection(matches[1]),
+        show: (matches) => -this._gotoWorkout(matches[1]),
       },
-      
       {
         url: "^/workoutOverview/(.*)$",
         show: (matches) => -this._gotoWorkoutOverview(matches[1]),
@@ -119,8 +121,6 @@ class App {
     }
   }
 
-
-
   /**
    * Seite zum Bearbeiten einer Übung anzeigen.  Wird vom Single Page
    * Router aufgerufen.
@@ -161,20 +161,6 @@ class App {
     }
   }
 
-  async _gotoWorkoutSelection(id) {
-
-   
-    try {
-      // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
-      let { default: WorkoutOverviewhinzufuegen } = await import("./Workoutmanagement/page-workouthinzufuegen.js");
-      
-      let page = new WorkoutOverviewhinzufuegen(this,id);
-      await page.init();
-      this._showPage(page, "workout");
-    } catch (ex) {
-      this.showException(ex);
-    }
-  }
   /**
    * Seite zum Bearbeiten einer Übung anzeigen.  Wird vom Single Page
    * Router aufgerufen.
@@ -182,7 +168,6 @@ class App {
    * @param {Number} id ID der zu bearbeitenden Adresse
    */
   async _gotoWorkout(id) {
-    
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: WorkoutSelection } = await import(
@@ -233,7 +218,7 @@ class App {
     }
   }
 
-   
+  
   //}
   /**
    * Interne Methode zum Umschalten der sichtbaren Seite.

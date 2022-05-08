@@ -38,7 +38,10 @@ class App {
         url: "^/description/(.*)$",
         show: (matches) => -this._gotoDescription(matches[1]),
       },
-      
+      {
+        url: "^/workout",
+        show: () => -this._gotoWorkoutSelection(),
+      },
       {
         url: "^/workout/(.*)$",
         show: (matches) => -this._gotoWorkoutSelection(matches[1]),
@@ -163,7 +166,12 @@ class App {
 
   async _gotoWorkoutSelection(id) {
 
-   
+    let answer = confirm(
+      id
+      //test.exercises[index]
+    );
+    if (!answer) return;
+
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: WorkoutOverviewhinzufuegen } = await import("./Workoutmanagement/page-workouthinzufuegen.js");
