@@ -6,13 +6,13 @@ import HtmlTemplate from "./page-workouthinzufuegen.html";
 /**
  * Klasse PageList: Stellt die Listenübersicht zur Verfügung
  */
- //export default class WorkoutSelection extends Page {
+//export default class WorkoutSelection extends Page {
 export default class WorkoutOverviewhinzufuegen extends Page {
   /**
    * Konstruktor.
    *
    * @param {App} app Instanz der App-Klasse
-   * 
+   *
    */
   constructor(app, exercise) {
     super(app, HtmlTemplate);
@@ -20,7 +20,7 @@ export default class WorkoutOverviewhinzufuegen extends Page {
     this._exercise = exercise;
     this._emptyMessageElement = null;
   }
-  
+
   /**
    * HTML-Inhalt und anzuzeigende Daten laden.
    *
@@ -37,25 +37,17 @@ export default class WorkoutOverviewhinzufuegen extends Page {
    * und den JavaScript-Code dadurch deutlich vereinfachen.
    */
 
-
-   async init() {
+  async init() {
     // HTML-Inhalt nachladen
 
-    
-
     await super.init();
-    
-    
-    
 
-    this._title = "Übersicht";
+    this._title = "Workout";
 
     // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
     // let data = await this._app.backend.fetch("GET", "/workoutOverview");
     let data = await this._app.backend.fetch("GET", "/workout");
     //let exercise = await this._app.backend.fetch("GET", "/workout/");
-    
-   
 
     this._emptyMessageElement =
       this._mainElement.querySelector(".empty-placeholder");
@@ -75,96 +67,45 @@ export default class WorkoutOverviewhinzufuegen extends Page {
       // Platzhalter ersetzen
       let dataset = data[index];
 
-    
-
       let html = templateHtml;
 
       html = html.replace("$ID$", dataset._id);
       html = html.replace("$NAME$", dataset.name);
 
-      
-
       //Element in die Liste einfügen
       let dummyElement = document.createElement("div");
       dummyElement.innerHTML = html;
 
-
-      
       let liElement = dummyElement.firstElementChild;
       liElement.remove();
       olElement.appendChild(liElement);
 
-
-
       liElement
-          .querySelector(".action.addtothisWorkout")
-          .addEventListener(
-              
-            "click",                            
-                async () =>  {
-
-               
-                    
-                let exercisedata = await this._app.backend.fetch("GET", `/exercise/${this._exercise}`);
-                                
-                dataset.exercises.push(exercisedata)
-                
-                
-                  try {
-                    if (dataset) {
-                      await this._app.backend.fetch("PUT", `/workout/${dataset._id}`, {
-                        body: dataset,
-                      });
-                    } else {
-                      await this._app.backend.fetch("POST", `/workout/${dataset._id}`, {
-                        body: dataset,
-                      });
-                    }
-                  } catch (ex) {
-                    this._app.showException(ex);
-                    return;
-                  }
-                  location.hash = "#/";
-                }
- 
+        .querySelector(".action.addtothisWorkout")
+        .addEventListener("click", async () => {
+          let exercisedata = await this._app.backend.fetch(
+            "GET",
+            `/exercise/${this._exercise}`
           );
-    //   }
 
+          dataset.exercises.push(exercisedata);
 
-
-
+          try {
+            if (dataset) {
+              await this._app.backend.fetch("PUT", `/workout/${dataset._id}`, {
+                body: dataset,
+              });
+            } else {
+              await this._app.backend.fetch("POST", `/workout/${dataset._id}`, {
+                body: dataset,
+              });
+            }
+          } catch (ex) {
+            this._app.showException(ex);
+            return;
+          }
+          location.hash = "#/";
+        });
+    }
   }
-  
-
-  // /**
-  //  * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-  //  * die Adresse löschen will und löscht diese dann.
-  //  *
-  //  * @param {Integer} id ID des zu löschenden Datensatzes
-  //  */
-  // async _askDelete(id) {
-  //   // Sicherheitsfrage zeigen
-    
-  //   let answer = confirm(
-  //     "Soll die ausgewählte Übung wirklich gelöscht werden?"
-  //   );
-  //   if (!answer) return;
-
-  //   // Datensatz löschen
-  //   try {
-  //     this._app.backend.fetch("DELETE", `/exercise/${id}`);
-  //   } catch (ex) {
-  //     this._app.showException(ex);
-  //     return;
-  //   }
-
-  //   // HTML-Element entfernen
-  //   this._mainElement.querySelector(`[data-id="${id}"]`)?.remove();
-
-  //   if (this._mainElement.querySelector("[data-id]")) {
-  //     this._emptyMessageElement.classList.add("hidden");
-  //   } else {
-  //     this._emptyMessageElement.classList.remove("hidden");
-  //   }
-//   }
-}}
+}

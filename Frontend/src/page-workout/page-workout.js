@@ -6,7 +6,7 @@ import HtmlTemplate from "./page-workout.html";
 /**
  * Klasse PageList: Stellt die Listenübersicht zur Verfügung
  */
- //export default class WorkoutSelection extends Page {
+//export default class WorkoutSelection extends Page {
 export default class WorkoutOverview extends Page {
   /**
    * Konstruktor.
@@ -18,7 +18,7 @@ export default class WorkoutOverview extends Page {
 
     this._emptyMessageElement = null;
   }
-  
+
   /**
    * HTML-Inhalt und anzuzeigende Daten laden.
    *
@@ -34,10 +34,10 @@ export default class WorkoutOverview extends Page {
    * Apps würde man ggf. eine Template Engine wie z.B. Nunjucks integrieren
    * und den JavaScript-Code dadurch deutlich vereinfachen.
    */
-   async init() {
+  async init() {
     // HTML-Inhalt nachladen
     await super.init();
-    this._title = "Übersicht";
+    this._title = "Workout";
 
     // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
     // let data = await this._app.backend.fetch("GET", "/workoutOverview");
@@ -64,7 +64,6 @@ export default class WorkoutOverview extends Page {
       html = html.replace("$ID$", dataset._id);
       html = html.replace("$NAME$", dataset.name);
 
-
       //Element in die Liste einfügen
       let dummyElement = document.createElement("div");
       dummyElement.innerHTML = html;
@@ -72,63 +71,13 @@ export default class WorkoutOverview extends Page {
       liElement.remove();
       olElement.appendChild(liElement);
 
-  //     // Event Handler registrieren
-  //     liElement
-  //       .querySelector(".action.edit")
-  //       .addEventListener(
-  //         "click",
-  //         () => (location.hash = `#/edit/${dataset._id}`)
-  //       );
-  //     liElement
-  //       .querySelector(".action.delete")
-  //       .addEventListener("click", () => this._askDelete(dataset._id));
-
-  //     liElement
-  //       .querySelector(".action.description")
-  //       .addEventListener(
-  //         "click",
-  //         () => (location.hash = `#/description/${dataset._id}`)         
-      
-  //       );
-  //     // Warum hier? Workout hinzufügen Jan
       liElement
-          .querySelector(".action.showExcercises")
-          .addEventListener(
-            "click",
-            () => (location.hash = `#/workoutExerciseOverview/${dataset._id}`)
-          );
+        .querySelector(".action.showExcercises")
+        .addEventListener(
+          "click",
+          () => (location.hash = `#/workoutExerciseOverview/${dataset._id}`)
+        );
       // }
+    }
   }
-
-  // /**
-  //  * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-  //  * die Adresse löschen will und löscht diese dann.
-  //  *
-  //  * @param {Integer} id ID des zu löschenden Datensatzes
-  //  */
-  // async _askDelete(id) {
-  //   // Sicherheitsfrage zeigen
-    
-  //   let answer = confirm(
-  //     "Soll die ausgewählte Übung wirklich gelöscht werden?"
-  //   );
-  //   if (!answer) return;
-
-  //   // Datensatz löschen
-  //   try {
-  //     this._app.backend.fetch("DELETE", `/exercise/${id}`);
-  //   } catch (ex) {
-  //     this._app.showException(ex);
-  //     return;
-  //   }
-
-  //   // HTML-Element entfernen
-  //   this._mainElement.querySelector(`[data-id="${id}"]`)?.remove();
-
-  //   if (this._mainElement.querySelector("[data-id]")) {
-  //     this._emptyMessageElement.classList.add("hidden");
-  //   } else {
-  //     this._emptyMessageElement.classList.remove("hidden");
-  //   }
-//   }
-}}
+}
