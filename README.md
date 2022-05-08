@@ -25,9 +25,11 @@ Start mit Docker Compose
 
 Überarbeitung Backend
 ------------------------
+-- Infos zu Backend --
 
 Überarbeitung Frontend
 ------------------------
+-- Infos zu Frontend --
 
 Starten der Seite
 ------------------------
