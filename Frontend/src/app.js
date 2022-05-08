@@ -38,12 +38,10 @@ class App {
         url: "^/description/(.*)$",
         show: (matches) => -this._gotoDescription(matches[1]),
       },
-      
       {
         url: "^/workout/(.*)$",
         show: (matches) => -this._gotoWorkoutSelection(matches[1]),
       },
-      
       {
         url: "^/workoutOverview/(.*)$",
         show: (matches) => -this._gotoWorkoutOverview(matches[1]),
@@ -52,8 +50,6 @@ class App {
         url: "^/workoutExerciseOverview/(.*)$",
         show: (matches) => -this._gotoworkoutExerciseOverview(matches[1]),
       },
-
-      
       //last one
 
       {
@@ -119,8 +115,6 @@ class App {
     }
   }
 
-
-
   /**
    * Seite zum Bearbeiten einer Übung anzeigen.  Wird vom Single Page
    * Router aufgerufen.
@@ -146,8 +140,6 @@ class App {
    */
   async _gotoDescription(id) {
     try {
-     
-
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: PageDescription } = await import(
         "./page-description/page-description.js"
@@ -162,13 +154,13 @@ class App {
   }
 
   async _gotoWorkoutSelection(id) {
-
-   
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
-      let { default: WorkoutOverviewhinzufuegen } = await import("./Workoutmanagement/page-workouthinzufuegen.js");
-      
-      let page = new WorkoutOverviewhinzufuegen(this,id);
+      let { default: WorkoutOverviewhinzufuegen } = await import(
+        "./Workoutmanagement/page-workouthinzufuegen.js"
+      );
+
+      let page = new WorkoutOverviewhinzufuegen(this, id);
       await page.init();
       this._showPage(page, "workout");
     } catch (ex) {
@@ -182,7 +174,6 @@ class App {
    * @param {Number} id ID der zu bearbeitenden Adresse
    */
   async _gotoWorkout(id) {
-    
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: WorkoutSelection } = await import(
@@ -219,25 +210,20 @@ class App {
   }
 
   async _gotoworkoutExerciseOverview(id) {
-    
     try {
       // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
       let { default: PageWorkoutExercise } = await import(
         "./page-workoutexercises/page-workoutexercises.js"
       );
 
-   
       let page = new PageWorkoutExercise(this, id);
       await page.init();
       this._showPage(page, "workoutExerciseOverview");
     } catch (ex) {
       this.showException(ex);
     }
-    
-
   }
 
-   
   //}
   /**
    * Interne Methode zum Umschalten der sichtbaren Seite.

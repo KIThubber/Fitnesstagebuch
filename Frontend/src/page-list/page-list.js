@@ -209,13 +209,3 @@ export default class PageList extends Page {
     }
   }
 }
-
-//filter
-// var filterA = document.querySelector(".filter.filterA");
-// console.log(filterA);
-
-// console.log("dsfsdfsdf");
-// filterA[1].addEventListener("click", filterSelectionAll());
-// function filterSelectionAll() {
-//   console.log("test");
-// }
