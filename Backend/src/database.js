@@ -33,13 +33,13 @@ class DatabaseFactory {
     if ((await exercises.estimatedDocumentCount()) === 0) {
       exercises.insertMany([
         // dummy
-        {
-          name: "",
-          image: "Musterbild",
-          difficulty: "",
-          muscleGroup: "",
-          description: "<p>1. </p><p>2. </p><p>3. </p><p>4.</p>",
-        },
+        // {
+        //   name: "",
+        //   image: "Musterbild",
+        //   difficulty: "",
+        //   muscleGroup: "",
+        //   description: "<p>1. </p><p>2. </p><p>3. </p><p>4.</p>",
+        // },
 
         {
           name: "Bankdrücken mit Langhantel",
@@ -104,15 +104,14 @@ class DatabaseFactory {
   }
 
   async _createDemoWorkouts() {
-    let exercises = this.database.collection("workouts");
-    if ((await exercises.estimatedDocumentCount()) === 0) {
-      exercises.insertMany([
+    let workouts = this.database.collection("workouts");
+    if ((await workouts.estimatedDocumentCount()) === 0) {
+      workouts.insertMany([
         {
           name: "Push",
           exercises: [
-            {              
-              //{
-                name: "Bankdrücken mit Langhantel",
+            {
+              name: "Bankdrücken mit Langhantel",
                 image: "Musterbild",
                 difficulty: "Mittel",
                 muscleGroup: "Brust",
@@ -126,40 +125,33 @@ class DatabaseFactory {
                 muscleGroup: "Brust",
                 description:
                   "<p>1. Positionieren Sie die Bank zwischen 30 und 45 Grad.</p><p>2. Legen Sie sich mit den Füßen auf dem Boden flach auf die Bank. Mit gestreckten Armen die Stange lösen.</p><p>3. Senken Sie die Stange auf Ihre mittlere Brust</p><p>4. Heben Sie die Stange (langsam und kontrolliert) an, bis Sie Ihre Ellbogen gestreckt haben.</p>",
-                //},
-              }
-            ],
-            //,
-          
-
-            // 
-            //{
-            name: "Pull",
-            exercises: [
-              {
-                
-                  name: "Kreuzheben",
-                  image: "Musterbild",
-                  difficulty: "Fortgeschritten",
-                  muscleGroup: "Rücken",
-                  description: "<p>1. Stellen Sie sich mit dem Mittelfuß unter die Stange und greifen Sie die Stange mit den Händen etwa schulterbreit auseinander.</p><p>2. Beugen Sie Ihre Knie und heben Sie dann die Stange an, indem Sie Ihren Rücken strecken. Es ist wichtig, den Rücken gerade zu halten.</p><p>3. Stehen Sie zu Ihrer vollen Höhe und halten Sie.</p><p>4.Senken Sie die Stange auf den Boden, indem Sie Ihre Knie beugen und Ihren Rücken gerade halten.</p>",
-                },
-                {
-                  name: "Langhantelrudern vorgebeugt",
-                  image: "Musterbild",
-                  difficulty: "Mittel",
-                  muscleGroup: "Rücken",
-                  description: "<p>1. Greifen Sie eine Langhantel mit einem schulterbreiten pronierten oder supinierten Griff.</p><p>2. Beuge dich an deinen Hüften nach vorne, während du einen flachen Rücken behältst.</p><p>3. Ziehen Sie das Gewicht in Richtung Oberbauch.</p><p>4. Senken Sie das Gewicht kontrolliert ab und wiederholen Sie den Vorgang.</p>",
-                
-              }
-            ],
-            //}
-
-            // // Legs
-            // {
-            name: "Legs",
-            exercises: [
-              {
+            },
+          ],
+        },
+        {
+          name: "Pull",
+          exercises: [
+            {
+              name: "Kreuzheben",
+              image: "Musterbild",
+              difficulty: "Fortgeschritten",
+              muscleGroup: "Rücken",
+              description: "<p>1. Stellen Sie sich mit dem Mittelfuß unter die Stange und greifen Sie die Stange mit den Händen etwa schulterbreit auseinander.</p><p>2. Beugen Sie Ihre Knie und heben Sie dann die Stange an, indem Sie Ihren Rücken strecken. Es ist wichtig, den Rücken gerade zu halten.</p><p>3. Stehen Sie zu Ihrer vollen Höhe und halten Sie.</p><p>4.Senken Sie die Stange auf den Boden, indem Sie Ihre Knie beugen und Ihren Rücken gerade halten.</p>",
+            },
+            {
+              name: "Langhantelrudern vorgebeugt",
+              image: "Musterbild",
+              difficulty: "Mittel",
+              muscleGroup: "Rücken",
+              description: "<p>1. Greifen Sie eine Langhantel mit einem schulterbreiten pronierten oder supinierten Griff.</p><p>2. Beuge dich an deinen Hüften nach vorne, während du einen flachen Rücken behältst.</p><p>3. Ziehen Sie das Gewicht in Richtung Oberbauch.</p><p>4. Senken Sie das Gewicht kontrolliert ab und wiederholen Sie den Vorgang.</p>",
+            
+            },
+          ],
+        },
+        {
+          name: "Legs",
+          exercises: [
+            {
               name: "Squat",
               image: "Musterbild",
               difficulty: "Fortgeschritten",
@@ -186,10 +178,9 @@ class DatabaseFactory {
                 difficulty: "Mittel",
                 muscleGroup: "Beine",
                 description: "<p>1. Stellen Sie Ihre Beine schulterbreit auf die Plattform.</p><p>2. Lassen Sie das Gewicht los und strecken Sie Ihre Beine vollständig aus, ohne Ihre Knie zu sperren.</p><p>3. Senken Sie das Gewicht ab, bis sich Ihre Beine in einem 90°-Winkel befinden (aber lassen Sie NICHT zu, dass sich Ihr Gesäß und Ihr unterer Rücken vom Polster abheben. Dadurch wird Ihr unterer Rücken in eine runde Position gebracht, was sehr gefährlich ist.)</p><p>4. Drücken Sie das Gewicht zurück in die Ausgangsposition.</p>",
-              }
-            ],
-          },
-          
+            },
+          ],
+        },
       ]);
     }
   }
