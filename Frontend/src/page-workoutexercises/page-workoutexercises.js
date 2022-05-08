@@ -109,29 +109,29 @@ export default class PageWorkoutExercise extends Page {
    *
    * @param {Integer} id ID des zu löschenden Datensatzes
    */
-  async _askDelete(id) {
-    // Sicherheitsfrage zeigen
+//   async _askDelete(id) {
+//     // Sicherheitsfrage zeigen
 
-    let answer = confirm(
-      "Soll die ausgewählte Übung wirklich gelöscht werden?"
-    );
-    if (!answer) return;
+//     let answer = confirm(
+//       "Soll die ausgewählte Übung wirklich gelöscht werden?"
+//     );
+//     if (!answer) return;
 
-    // Datensatz löschen
-    try {
-      this._app.backend.fetch("DELETE", `/exercise/${id}`);
-    } catch (ex) {
-      this._app.showException(ex);
-      return;
-    }
+//     // Datensatz löschen
+//     try {
+//       this._app.backend.fetch("DELETE", `/exercise/${id}`);
+//     } catch (ex) {
+//       this._app.showException(ex);
+//       return;
+//     }
 
-    // HTML-Element entfernen
-    this._mainElement.querySelector(`[data-id="${id}"]`)?.remove();
+//     // HTML-Element entfernen
+//     this._mainElement.querySelector(`[data-id="${id}"]`)?.remove();
 
-    if (this._mainElement.querySelector("[data-id]")) {
-      this._emptyMessageElement.classList.add("hidden");
-    } else {
-      this._emptyMessageElement.classList.remove("hidden");
-    }
-  }
+//     if (this._mainElement.querySelector("[data-id]")) {
+//       this._emptyMessageElement.classList.add("hidden");
+//     } else {
+//       this._emptyMessageElement.classList.remove("hidden");
+//     }
+//   }
 }
