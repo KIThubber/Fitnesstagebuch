@@ -42,8 +42,11 @@ Verwaltung von Excercises, Workouts und
 In database.js sind die Vorlagen der Excercises und Workouts gespeichert
 
 ### API
+In der API wurde die Schnittstelle zur Datenbank aufgebaut, dafür wurden die jeweiligen
+HTTP-Befehle definiert für die jeweiligen Enitäten.
 
 ### Controller
+Die Excercise und Workout-Controler wurden für die Seite neu angelegt.
 
 Überarbeitung Frontend
 ------------------------
@@ -91,8 +94,9 @@ Per Klick auf `Zeige Exercises` gelangt man auf die Seite Workout.
 ![workoutOverview](workoutOverview.png?raw=true)
 
 ### Workout
+Zeigt die einzelnen Übungen, die sich in einem Workout befinden an
 
-kommt noch
+![workout](workout.png?raw=true)
 
 Starten der Seite
 ------------------------
