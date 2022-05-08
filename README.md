@@ -16,13 +16,17 @@ Kurzbeschreibung
 Bei unserer Anwendung handelt es sich um einen Fitness-Tracker, dieser ermöglicht
 dem Nutzer seine individuellen Workouts zusammenzustellen. Dafür kann der Nutzer
 sich vorgefertigte Übungen zu seinem Workout hinzufügen, aber auch selbst Übungen
-anlegen.
+anlegen. Das Fitnesstagebuch basiert auf der "Adressbuch (Single Page App)" aus
+den Vorlesungsunterlagen und wurde entsprechend geändert, um Excercises und Workouts
+speichern zu können.
 
-Single Page App
+Bei dem Fitnesstagebuch handelt es sich um eine Single Page App, welche den Inhalt
+dynamisch anpassen kann. Hierzu haben wir page-edit JavaSript Dateien verwendet,
+welche den Inhalt der Main Methode anpassen können.
 
 Start mit Docker Compose
 ------------------------
-
+Um Änderungen innerhalb der Laufzeit zu sehen, haben wir uns für Docker entschieden.
 Zum starten der Anwendung muss zunächst ein Docker-Container erstellt werden
 
 ```sh
@@ -58,8 +62,6 @@ Zu einer Übung kann hier
 * `Bearbeiten`: Öffnet eine Maske, wie in addExcercise
 * `Löschen`: Löscht die Übung aus der Datenbank
 
-Die Übungen werden dabei aus dem Backend über die page-edit ausgelesen und aufgespielt
-
 ### Excercise
 Kompakte Infos zur Übung und deren Durchführung.
 Hier gibt es zu jeder Übung eine Übersicht zur Muskelgruppe, der Schwierigkeit und einer 
@@ -69,7 +71,8 @@ detailierten Beschreibung, zur Ausführung der Übung.
 
 ### Übung hinzufügen (new)
 
-Hier kann eine neue Übung angelegt werden
+Auf der Seite AddExcercise kann eine neue Übung angelegt werden.
+Dafür müssen die folgenden Felder ausgefüllt werden.
 * `name`: Name der Übung
 * `image`: Link zu Bild
 * `difficulty`: Schwierigkeitsgrad (Leicht, Mittel, Fortgeschritten)
@@ -86,8 +89,6 @@ Auf der Seite WorkoutOverview findet man eine Übersicht über die bereits angel
 Per Klick auf `Zeige Exercises` gelangt man auf die Seite Workout.
 
 ![workoutOverview](workoutOverview.png?raw=true)
-
-Hier werden die Daten mittels der page-workoutExcercises eigelesen
 
 ### Workout
 
